@@ -81,7 +81,11 @@ return {
         end,
     },
 
-    { "mfussenegger/nvim-lint" },
+    { "mfussenegger/nvim-lint",
+	config = function()
+		require("core.lint")
+	end
+    },
 
     {
         "lewis6991/gitsigns.nvim",

@@ -13,6 +13,9 @@ return {
             },
             "saadparwaiz1/cmp_luasnip",
         },
+	config = function()
+		require("cmp.cmp")
+	end
     },
 
     {

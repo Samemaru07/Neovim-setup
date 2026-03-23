@@ -123,6 +123,8 @@ vim.api.nvim_create_autocmd("ColorScheme", {
         -- Visualモードの選択範囲を見やすくする
         vim.api.nvim_set_hl(0, "Visual", { bg = "#82827F", bold = true })
 
+	vim.api.nvim_set_hl(0, "AlphaHeader", { fg = "#AFEEEE" })
+
         vim.schedule(update_bufferline_bg)
     end,
 })

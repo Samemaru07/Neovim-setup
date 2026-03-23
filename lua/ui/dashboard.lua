@@ -61,10 +61,3 @@ dashboard.section.buttons.val = {
 }
 
 alpha.setup(dashboard.opts)
-
--- ハイライト指定
-vim.api.nvim_create_autocmd("ColorScheme", {
-    callback = function()
-        vim.api.nvim_set_hl(0, "AlphaHeader", { fg = "#AFEEEE" })
-    end,
-})

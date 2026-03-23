@@ -3,7 +3,7 @@ return {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
         config = function()
-            require("nvim-treesitter.configs").setup({
+            require("nvim-treesitter").setup({
                 highlight = { enable = true },
                 indent = { enable = true },
                 ensure_installed = {
@@ -88,10 +88,6 @@ return {
         event = "VeryLazy",
         config = function()
             require("nvim-surround").setup({
-                keymaps = {
-                    insert = false,
-                    insert_line = false,
-                },
                 surrounds = {
                     ["q"] = {
                         add = { "\u{201C}", "\u{201D}" },
