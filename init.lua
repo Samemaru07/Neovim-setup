@@ -18,18 +18,6 @@ vim.g.mapleader = " "
 require("core.options")
 require("core.keymaps")
 require("plugins")
-require("core.lint")
-require("core.autocmds")
-
-require("ui.colorscheme")
-require("ui.lualine")
-require("ui.bufferline")
-require("ui.nvim-tree")
-require("ui.toggleterm")
-require("ui.dashboard")
-
-require("cmp.cmp")
-require("ui.trouble")
 
 -- swap / backup / undo ディレクトリの保証
 local data_dir = vim.fn.stdpath("data")

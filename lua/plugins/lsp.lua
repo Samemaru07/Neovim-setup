@@ -1,5 +1,9 @@
 return {
-    { "neovim/nvim-lspconfig" },
+    { "neovim/nvim-lspconfig",
+    	config = function()
+		require("lsp.lsp")
+	end
+    },
 
     {
         "williamboman/mason.nvim",

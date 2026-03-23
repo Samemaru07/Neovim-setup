@@ -1,10 +1,30 @@
 return {
-    { "nvim-tree/nvim-tree.lua" },
     { "nvim-tree/nvim-web-devicons" },
-    { "akinsho/bufferline.nvim" },
-    { "nvim-lualine/lualine.nvim" },
-    { "akinsho/toggleterm.nvim" },
-    { "folke/trouble.nvim" },
+    { "nvim-tree/nvim-tree.lua",
+	config = function()
+		require("ui.nvim-tree")
+	end
+    },
+    { "akinsho/bufferline.nvim",
+	config = function()
+		require("ui.bufferline")
+	end
+    },
+    { "nvim-lualine/lualine.nvim",
+	config = function()
+		require("ui.lualine")
+	end
+    },
+    { "akinsho/toggleterm.nvim",
+	config = function()
+		require("ui.toggleterm")
+	end
+    },
+    { "folke/trouble.nvim",
+	config = function()
+		require("ui.trouble")
+	end
+    },
 
     {
         "catppuccin/nvim",
@@ -18,12 +38,16 @@ return {
         "rebelot/kanagawa.nvim",
         priority = 1000,
         lazy = false,
+	config = function()
+		require("ui.colorscheme")
+	end
     },
 
     {
         "goolord/alpha-nvim",
         config = function()
             require("ui.dashboard")
+	    vim.api.nvim_set_hl(0, "AlphaHeader", { fg = "#AFEEEE" })
         end,
     },
 
