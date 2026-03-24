@@ -14,7 +14,7 @@ end
 require("lualine").setup({
     options = {
         theme = "auto",
-        globalstatus = false,
+        globalstatus = true,
         disabled_filetypes = { "alpha" },
     },
     sections = {
@@ -28,15 +28,11 @@ require("lualine").setup({
             {
                 function()
                     if vim.bo.buftype == "terminal" then
-                        local bufnr = vim.api.nvim_get_current_buf()
-                        local name = vim.api.nvim_buf_get_name(bufnr)
-                        name = vim.fn.fnamemodify(name, ":t")
                         local m = vim.api.nvim_get_mode().mode
-
                         if m == "t" then
-                            return name .. "  -- TERMINAL --"
+                            return "ターミナル -- TERMINAL --"
                         else
-                            return name .. "  -- TERMINAL-NORMAL --"
+                            return "ターミナル -- TERMINAL-NORMAL --"
                         end
                     end
                     return ""
