@@ -40,5 +40,3 @@ vim.diagnostic.config({
         border = "rounded",
     },
 })
-
-vim.o.winborder = "rounded"

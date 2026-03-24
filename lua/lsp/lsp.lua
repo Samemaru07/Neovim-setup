@@ -1,5 +1,10 @@
 local M = {}
 
+local orig_hover = vim.lsp.buf.hover
+vim.lsp.buf.hover = function()
+    orig_hover({ border = "rounded" })
+end
+
 M.on_attach = function(client, bufnr)
     local map = vim.keymap.set
     local opts = { noremap = true, silent = true, buffer = bufnr }
