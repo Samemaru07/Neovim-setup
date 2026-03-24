@@ -290,3 +290,6 @@ map("n", "<leader>w", "ysiw", { remap = true, desc = "Surround Word" })
 map("n", "<leader>W", "yss", { remap = true, desc = "Surround Line" })
 map("n", "<leader>dq", "dsq", { remap = true, desc = "Delete Quotes" })
 map("n", "<leader>cq", "csq", { remap = true, desc = "Change Quote to ()" })
+
+-- beacon
+map("n", "<leader>z", "<cmd>Beacon<CR>", opts)
