@@ -4,6 +4,7 @@
   "LuaSnip": { "branch": "master", "commit": "642b0c595e11608b4c18219e93b88d7637af27bc" },
   "SmoothCursor.nvim": { "branch": "main", "commit": "12518b284e1e3f7c6c703b346815968e1620bee2" },
   "alpha-nvim": { "branch": "main", "commit": "a9d8fb72213c8b461e791409e7feabb74eb6ce73" },
+  "beacon.nvim": { "branch": "main", "commit": "d02ee7dfcc999537c2f09abdf667aab52f8648f3" },
   "bibcite.nvim": { "branch": "main", "commit": "bc8a075b402e70f4c4ce233abaae3a2a63cf7307" },
   "bufferline.nvim": { "branch": "main", "commit": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3" },
   "catppuccin": { "branch": "main", "commit": "a7788416689dbefea659d9e9415c87926b0ba5d8" },
