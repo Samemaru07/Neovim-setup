@@ -40,3 +40,5 @@ vim.diagnostic.config({
         border = "rounded",
     },
 })
+
+vim.g.nvim_surround_no_insert_mappings = true
