@@ -16,7 +16,11 @@ vim.api.nvim_create_autocmd("BufNewFile", {
 
 -- 外部変更の自動リロード
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
-    command = "checktime",
+    callback = function()
+        if vim.bo.buftype ~= "terminal" then
+            vim.cmd("checktime")
+        end
+    end,
 })
 
 vim.api.nvim_create_autocmd("FileChangedShellPost", {
