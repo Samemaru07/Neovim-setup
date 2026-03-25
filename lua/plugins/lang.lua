@@ -87,17 +87,37 @@ return {
     {
         "iamcco/markdown-preview.nvim",
         ft = "markdown",
-        build = "cd app && npm install",
-        init = function()
+        build = function()
+            vim.fn["mkdp#util#install"]()
+        end,
+        config = function()
             vim.g.mkdp_auto_start = 0
             vim.g.mkdp_open_to_the_world = 0
-            vim.g.mkdp_open_ip = "127.0.0.1"
-            vim.g.mkdp_browserfunc = "OpenWslBrowser"
-            vim.cmd([[
-				function! OpenWslBrowser(url)
-					execute 'silent !wslview ' . a:url
-				endfunction
-			]])
+            vim.g.mmkdp_open_id = "127.0.0.1"
+
+            -- OS判別
+            local is_wsl = (function()
+                local output = vim.fn.systemlist("uname -r")
+                if not output[1] then
+                    return false
+                end
+                return output[1]:lower():find("microsoft") ~= nil
+            end)()
+
+            if is_wsl then
+                -- WSL環境の設定
+                vim.g.mkdp_browser = ""
+                vim.g.mkdp_browserfunc = "OpenWslBrowser"
+                vim.cmd([[
+                function! OpenWslBrowser(url)
+                    call system('wslview ' . shellescape(a:url))
+                endfunction
+            ]])
+            else
+                -- Arch Linuxの設定
+                vim.g.mkdp_browser = ""
+                vim.g.mkdp_browserfunc = ""
+            end
         end,
     },
 
