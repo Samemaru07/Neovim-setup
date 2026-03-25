@@ -88,6 +88,10 @@ return {
         event = "VeryLazy",
         config = function()
             require("nvim-surround").setup({
+                keymaps = {
+                    insert = false,
+                    insert_line = false,
+                },
                 surrounds = {
                     ["q"] = {
                         add = { "\u{201C}", "\u{201D}" },
