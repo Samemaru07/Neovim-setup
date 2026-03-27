@@ -1,8 +1,9 @@
 return {
-    { "neovim/nvim-lspconfig",
-    	config = function()
-		require("lsp.lsp")
-	end
+    {
+        "neovim/nvim-lspconfig",
+        config = function()
+            require("lsp.lsp")
+        end,
     },
 
     {
@@ -26,6 +27,7 @@ return {
                     "delve",
                     "jq",
                     "jsonnetfmt",
+                    "markdownlint",
                 },
             })
         end,
@@ -66,6 +68,7 @@ return {
                     "gopls",
                     "vhdl_ls",
                     "harper_ls",
+                    "marksman",
                 },
                 handlers = {
                     function(server_name)
@@ -94,6 +97,12 @@ return {
                                     build = { onSave = false },
                                 },
                             },
+                        })
+                    end,
+
+                    ["marksman"] = function()
+                        require("lspconfig").marksman.setup({
+                            capabilities = capabilities,
                         })
                     end,
 

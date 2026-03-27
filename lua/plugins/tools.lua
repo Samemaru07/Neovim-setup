@@ -60,6 +60,7 @@ return {
                     jsonc = { "prettier" },
                     qml = { "qmlformat" },
                     processing = { "clang_format" },
+                    markdown = { "prettier", "markdownlink" },
                 },
                 formatters = {
                     ["verible-verilog-format"] = {
@@ -81,10 +82,11 @@ return {
         end,
     },
 
-    { "mfussenegger/nvim-lint",
-	config = function()
-		require("core.lint")
-	end
+    {
+        "mfussenegger/nvim-lint",
+        config = function()
+            require("core.lint")
+        end,
     },
 
     {
