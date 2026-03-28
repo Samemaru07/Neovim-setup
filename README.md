@@ -51,7 +51,9 @@ sudo apt install -y git curl build-essential zsh ripgrep fd-find pulseaudio-util
 sudo ln -sf "$(which fdfind)" /usr/local/bin/fd
 ```
 
-##### 2. Neovimのインストール
+##### 2. バージョンが重要なツールのインストール
+
+###### Neovim
 
 aptのものは古い為、公式バイナリを導入します。
 
@@ -59,6 +61,40 @@ aptのものは古い為、公式バイナリを導入します。
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
 sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
 sudo ln -sf /opt/nvim-linux-x86_64/bin/nvim /usr/local/bin/nvim
+```
+
+###### Node.js
+
+aptのものは古い為、NodeSource経由でLTSを導入します。
+
+```bash
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt install nodejs -y
+```
+
+###### Go
+
+aptのものは古い為、公式tarballを導入します。
+
+```bash
+GO_VERSION=$(curl -fsSL "https://go.dev/VERSION?m=text" | head -1 | sed 's/^go//')
+curl -LO "https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz"
+sudo rm -rf /usr/local/go
+sudo tar -C /usr/local -xzf "go${GO_VERSION}.linux-amd64.tar.gz"
+export PATH="$PATH:/usr/local/go/bin"
+```
+
+###### Rust
+
+```bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+source "$HOME/.cargo/env"
+```
+
+###### Deno
+
+```bash
+curl -fsSL https://deno.land/install.sh | sh
 ```
 
 ##### 3. 公開鍵認証 (GitHub) の設定
