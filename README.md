@@ -37,7 +37,29 @@
 | Rust (cargo)                           | `stylua`のインストールに必要                                                                          |
 | Deno                                   | SKKプラグインで使用                                                                                   |
 | lazygit                                | Git操作UI                                                                                             |
-| [NerdFont](https://www.nerdfonts.com/) | アイコン表示に必要 (ターミナル側の設定)                                                               |
+| [Nerd Font](https://www.nerdfonts.com/) | アイコン表示に必要。FiraCode/JetBrains Mono等をターミナルに設定                                      |
+
+### オプション (言語別ツール)
+
+プラグインの全機能を使うには、以下のフォーマッター・Linterを必要に応じてインストールしてください:
+
+| カテゴリ     | ツール                          | 対象言語    | インストール方法                       |
+| ------------ | ------------------------------- | ----------- | -------------------------------------- |
+| フォーマット | stylua                          | Lua         | `cargo install stylua`                 |
+| フォーマット | prettier                        | JS/TS/JSON  | `npm install -g prettier`              |
+| フォーマット | black                           | Python      | `pip install black`                    |
+| フォーマット | clang-format                    | C/C++       | `apt install clang-format`             |
+| フォーマット | shfmt                           | Shell       | `go install mvdan.cc/sh/v3/cmd/shfmt@latest` |
+| フォーマット | latexindent                     | LaTeX       | `apt install latexindent`              |
+| Linter       | ruff                            | Python      | `pip install ruff`                     |
+| Linter       | shellcheck                      | Shell       | `apt install shellcheck`               |
+| Linter       | ghdl                            | VHDL        | `apt install ghdl`                     |
+| LaTeX        | latexmk + lualatex              | LaTeX       | `apt install latexmk texlive-luatex`   |
+| LaTeX        | neovim-remote                   | vimtex      | `pip install neovim-remote`            |
+| SKK辞書      | SKK-JISYO.L                     | 日本語入力  | `~/.skk/` に配置 ([辞書DL](http://openlab.jp/skk/dic/SKK-JISYO.L.gz)) |
+| オーディオ   | paplay (pulseaudio-utils)       | 通知音      | `apt install pulseaudio-utils`         |
+
+> **Note:** LSPサーバやデバッガは[Mason](https://github.com/williamboman/mason.nvim)が自動インストールします。
 
 > **WSL (Ubuntu) ユーザへ:**
 > aptのパッケージはNeovim・Node.js・Goが古い為、上記リンクから最新版を導入してください。
