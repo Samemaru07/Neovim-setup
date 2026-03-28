@@ -424,56 +424,8 @@ WSLの手順[3. 公開鍵認証 (GitHub) の設定](<#3.-公開鍵認証-(github
 | `<leader>z`  | n      | カーソル位置を強調表示        |
 | `<leader>rr` | n      | Neovim設定リロード            |
 
-<!-- > **環境別の読み替えについて:**\ -->
-<!-- > 以下のインストール方法は**WSL (Ubuntu) ** を基準に記載しています。**Arch Linux**をお使いの場合は、`apt`→`pacman -S` / `yay -S`に読み替えてください。 -->
-<!---->
- <!-- > macOSをお使いの場合は、`apt`→`brew install`に読み替えてください -->
-<!---->
-<!-- | ツール                                  | 備考                                                      | -->
-<!-- | --------------------------------------- | --------------------------------------------------------- | -->
-<!-- | Neovim >= 0.10                          | aptのものは古い                                           | -->
-<!-- | Git                                     | lazy.nvimのプラグイン取得に必要                           | -->
-<!-- | SSHキー                                 | GitHubへのSSH登録とSSH Agentの起動が必要                  | -->
-<!-- | build-essential (gcc / make)            | Mason経由のLSPサーバのビルドに必要                        | -->
-<!-- | ripgrep                                 | Telescopeのファイル検索に必要                             | -->
-<!-- | fd                                      | 同上。WSLでは`fdfind`として入る為シンボリックリンクが必要 | -->
-<!-- | Node.js (LTS)                           | aptのものは古い                                           | -->
-<!-- | Python3 + pip                           | `pynvim`のインストールに必要                              | -->
-<!-- | Go                                      | aptのものは古い                                           | -->
-<!-- | Rust (cargo)                            | `stylua`のインストールに必要                              | -->
-<!-- | Deno                                    | Neovim内SKKプラグインで使用                               | -->
-<!-- | lazygit                                 | Git操作UI                                                 | -->
-<!-- | [Nerd Font](https://www.nerdfonts.com/) | アイコン表示に必要                                        | -->
-<!---->
-<!-- > **WSL (Ubuntu) ユーザへ:**\ -->
-<!-- > Neovim・Node.js・Go・Denoは、aptのものが古いか未収録の為、インストールセクションの手順に従ってください。 -->
-<!---->
-<!-- ### オプション (言語別ツール) -->
-<!---->
-<!-- プラグインの全機能を使うには、以下のフォーマッター・Linterを必要に応じてインストールしてください: -->
-<!---->
-<!-- | カテゴリ     | ツール                    | 対象言語   | インストール方法                                                      | -->
-<!-- | ------------ | ------------------------- | ---------- | --------------------------------------------------------------------- | -->
-<!-- | フォーマット | stylua                    | Lua        | `cargo install stylua`                                                | -->
-<!-- | フォーマット | prettier                  | JS/TS/JSON | `npm install -g prettier`                                             | -->
-<!-- | フォーマット | black                     | Python     | `pip install black`                                                   | -->
-<!-- | フォーマット | clang-format              | C/C++      | `apt install clang-format`                                            | -->
-<!-- | フォーマット | shfmt                     | Shell      | `go install mvdan.cc/sh/v3/cmd/shfmt@latest`                          | -->
-<!-- | フォーマット | latexindent               | LaTeX      | `apt install latexindent`                                             | -->
-<!-- | Linter       | ruff                      | Python     | `pip install ruff`                                                    | -->
-<!-- | Linter       | shellcheck                | Shell      | `apt install shellcheck`                                              | -->
-<!-- | Linter       | ghdl                      | VHDL       | `apt install ghdl`                                                    | -->
-<!-- | LaTeX        | latexmk + lualatex        | LaTeX      | `apt install latexmk texlive-luatex`                                  | -->
-<!-- | LaTeX        | neovim-remote             | vimtex     | `pip install neovim-remote`                                           | -->
-<!-- | SKK辞書      | SKK-JISYO.L               | 日本語入力 | `~/.skk/` に配置 ([辞書DL](http://openlab.jp/skk/dic/SKK-JISYO.L.gz)) | -->
-<!-- | オーディオ   | paplay (pulseaudio-utils) | 通知音     | `apt install pulseaudio-utils`                                        | -->
-<!---->
-<!-- > **Note:** LSPサーバやデバッガは[Mason](https://github.com/williamboman/mason.nvim)が自動インストールします。 -->
-<!---->
-<!-- > **WSL (Ubuntu) ユーザへ:** -->
-<!-- > aptのパッケージはNeovim・Node.js・Goが古い為、上記リンクから最新版を導入してください。 -->
-<!-- > また、クリップボード連携に`win32yank.exe`が必要です。 -->
-<!-- > [こちら](https://github.com/equalsraf/win32yank/releases)から`win32yank`を`C:\tools\`に配置してください。 -->
-<!---->
-<!-- > **一括セットアップ:** -->
-<!-- > [dotfiles](https://github.com/Samemaru07/dotfiles)のインストールスクリプト`bootstrap.sh`を使うとNeovim本体含む上記ツールを自動で導入できます。 -->
+## 📄 ライセンス
+
+MIT License © 2025 Samemaru07
+
+詳細は [LICENSE](./LICENSE) を参照してください。
