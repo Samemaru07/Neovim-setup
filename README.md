@@ -149,10 +149,20 @@ nvim
 
 ##### 1. 基本ツールのインストール
 
+```bash
+sudo pacman -Syu
+sudo pacman -S --needed git curl zsh base-devel ripgrep fd xclip wl-clipboard python python-pip nodejs npm go rustup shellcheck shfmt clang
+```
+
 ##### 2. Neovimのインストール
 
-##### 3. 公開鍵認証 (GitHub) の設定
+```bash
+sudo pacman -S neovim
+```
 
-##### 4. クローン
+##### 3. 以降
 
-##### 5. Neovimを起動
+WSLの手順[3. 公開鍵認証 (GitHub) の設定](<#3.-公開鍵認証-(github)-の設定>) ~ と同様に。
+
+> 起動するとlazy.nvimが自動でプラグインをインストールします。
+> Masonも自動でLSPサーバをセットアップします。
