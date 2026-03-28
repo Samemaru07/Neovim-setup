@@ -159,10 +159,114 @@ WSLの手順[3. 公開鍵認証 (GitHub) の設定](<#3.-公開鍵認証-(github
 > 起動するとlazy.nvimが自動でプラグインをインストールします。
 > Masonも自動でLSPサーバをセットアップします。
 
+## プラグイン一覧
+
+### UI
+
+| プラグイン名                                                        | 説明                     |
+| ------------------------------------------------------------------- | ------------------------ |
+| [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) | アイコン表示             |
+| [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua)         | ファイルエクスプローラ   |
+| [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)       | バッファライン表示       |
+| [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)        | ステータスライン         |
+| [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)       | ターミナルトグル         |
+| [trouble.nvim](https://github.com/folke/trouble.nvim)               | 診断・参照の一覧表示     |
+| [catppuccin](https://github.com/catppuccin/nvim)                    | カラースキーム           |
+| [kanagawa.nvim](https://github.com/rebelot/kanagawa.nvim)           | カラースキーム           |
+| [alpha-nvim](https://github.com/goolord/alpha-nvim)                 | ダッシュボード           |
+| [hlchunk.nvim](https://github.com/shellRaining/hlchunk.nvim)        | インデントハイライト     |
+| [noice.nvim](https://github.com/folke/noice.nvim)                   | UI拡張                   |
+| [nui.nvim](https://github.com/MunifTanjim/nui.nvim)                 | UI部品ライブラリ         |
+| [nvim-notify](https://github.com/rcarriga/nvim-notify)              | 通知システム             |
+| [which-key.nvim](https://github.com/folke/which-key.nvim)           | キーバインド表示         |
+| [SmoothCursor.nvim](https://github.com/gen740/SmoothCursor.nvim)    | カーソルアニメーション   |
+| [todo-comments.nvim](https://github.com/folke/todo-comments.nvim)   | TODOコメント強調         |
+| [neoscroll.nvim](https://github.com/karb94/neoscroll.nvim)          | スムーススクロール       |
+| [dropbar.nvim](https://github.com/Bekaboo/dropbar.nvim)             | ウィンバーナビゲーション |
+
+### LSP
+
+| プラグイン名                                                                              | 説明                        |
+| ----------------------------------------------------------------------------------------- | --------------------------- |
+| [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)                                | LSP設定                     |
+| [mason.nvim](https://github.com/williamboman/mason.nvim)                                  | LSP/DAP/Linterマネージャ    |
+| [mason-tool-installer.nvim](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim) | Masonツール自動インストール |
+| [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)              | Mason-LSP連携               |
+| [lazydev.nvim](https://github.com/folke/lazydev.nvim)                                     | Lua LSP拡張                 |
+| [luvit-meta](https://github.com/Bilal2453/luvit-meta)                                     | Lua型定義                   |
+| [fidget.nvim](https://github.com/j-hui/fidget.nvim)                                       | LSP進捗表示                 |
+
+### 補完
+
+| プラグイン名                                                                        | 説明                     |
+| ----------------------------------------------------------------------------------- | ------------------------ |
+| [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)                                     | 補完エンジン             |
+| [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)                             | LSP補完ソース            |
+| [cmp-buffer](https://github.com/hrsh7th/cmp-buffer)                                 | バッファ補完ソース       |
+| [cmp-path](https://github.com/hrsh7th/cmp-path)                                     | パス補完ソース           |
+| [cmp-cmdline](https://github.com/hrsh7th/cmp-cmdline)                               | コマンドライン補完ソース |
+| [cmp-skkeleton](https://github.com/uga-rosa/cmp-skkeleton)                          | SKK補完ソース            |
+| [LuaSnip](https://github.com/L3MON4D3/LuaSnip)                                      | スニペットエンジン       |
+| [friendly-snippets](https://github.com/rafamadriz/friendly-snippets)                | スニペット集             |
+| [cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)                          | LuaSnip補完ソース        |
+| [skkeleton](https://github.com/vim-skk/skkeleton)                                   | SKK日本語入力            |
+| [denops.vim](https://github.com/vim-denops/denops.vim)                              | Denoランタイム           |
+| [skkeleton_indicator.nvim](https://github.com/delphinus/skkeleton_indicator.nvim)   | SKKモード表示            |
+| [skkeleton-henkan-highlight](https://github.com/NI57721/skkeleton-henkan-highlight) | SKK変換ハイライト        |
+
+### エディタ
+
+| プラグイン名                                                                                    | 説明                   |
+| ----------------------------------------------------------------------------------------------- | ---------------------- |
+| [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)                           | シンタックス解析       |
+| [nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context)           | コンテキスト表示       |
+| [nvim-autopairs](https://github.com/windwp/nvim-autopairs)                                      | 括弧自動補完           |
+| [nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)                                    | HTMLタグ自動閉じ       |
+| [Comment.nvim](https://github.com/numToStr/Comment.nvim)                                        | コメントトグル         |
+| [nvim-ts-context-commentstring](https://github.com/JoosepAlviste/nvim-ts-context-commentstring) | コメント文字列自動設定 |
+| [nvim-surround](https://github.com/kylechui/nvim-surround)                                      | 囲み文字操作           |
+| [flash.nvim](https://github.com/folke/flash.nvim)                                               | 高速移動               |
+| [emmet-vim](https://github.com/mattn/emmet-vim)                                                 | HTML/CSS展開           |
+| [beacon.nvim](https://github.com/rainbowhxch/beacon.nvim)                                       | カーソル位置強調       |
+
+### 言語
+
+| プラグイン名                                                                     | 説明                  |
+| -------------------------------------------------------------------------------- | --------------------- |
+| [vimtex](https://github.com/lervag/vimtex)                                       | LaTeX統合環境         |
+| [flutter-tools.nvim](https://github.com/nvim-flutter/flutter-tools.nvim)         | Flutter開発支援       |
+| [verilog_systemverilog.vim](https://github.com/vhda/verilog_systemverilog.vim)   | Verilog/SystemVerilog |
+| [vim-dadbod](https://github.com/tpope/vim-dadbod)                                | データベース接続      |
+| [vim-dadbod-ui](https://github.com/kristijanhusak/vim-dadbod-ui)                 | データベースUI        |
+| [vim-dadbod-completion](https://github.com/kristijanhusak/vim-dadbod-completion) | DB補完                |
+| [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)         | Markdownプレビュー    |
+| [bibcite.nvim](https://github.com/aidavdw/bibcite.nvim)                          | BibTeX管理            |
+| [vim-processing](https://github.com/sophacles/vim-processing)                    | Processing対応        |
+
+### ツール
+
+| プラグイン名                                                                             | 説明               |
+| ---------------------------------------------------------------------------------------- | ------------------ |
+| [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)                       | ファジーファインダ |
+| [nvim-spectre](https://github.com/nvim-pack/nvim-spectre)                                | 検索置換UI         |
+| [conform.nvim](https://github.com/stevearc/conform.nvim)                                 | フォーマッタ管理   |
+| [nvim-lint](https://github.com/mfussenegger/nvim-lint)                                   | Linter管理         |
+| [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)                              | Git差分表示        |
+| [nvim-dap](https://github.com/mfussenegger/nvim-dap)                                     | デバッガ           |
+| [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)                                   | デバッガUI         |
+| [nvim-nio](https://github.com/nvim-neotest/nvim-nio)                                     | 非同期I/O          |
+| [nvim-dap-virtual-text](https://github.com/theHamsta/nvim-dap-virtual-text)              | デバッグ変数表示   |
+| [mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)                   | Mason-DAP連携      |
+| [neotest](https://github.com/nvim-neotest/neotest)                                       | テストランナー     |
+| [FixCursorHold.nvim](https://github.com/antoinemadec/FixCursorHold.nvim)                 | CursorHold修正     |
+| [telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim) | Telescope高速化    |
+| [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)                                 | Lua関数ライブラリ  |
+| [dressing.nvim](https://github.com/stevearc/dressing.nvim)                               | UI選択拡張         |
+
 <!-- > **環境別の読み替えについて:**\ -->
 <!-- > 以下のインストール方法は**WSL (Ubuntu) ** を基準に記載しています。**Arch Linux**をお使いの場合は、`apt`→`pacman -S` / `yay -S`に読み替えてください。 -->
 <!---->
-<!-- <!-- > macOSをお使いの場合は、`apt`→`brew install`に読み替えてください --> -->
+ <!-- > macOSをお使いの場合は、`apt`→`brew install`に読み替えてください -->
 <!---->
 <!-- | ツール                                  | 備考                                                      | -->
 <!-- | --------------------------------------- | --------------------------------------------------------- | -->
