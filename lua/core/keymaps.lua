@@ -219,8 +219,6 @@ map("v", "x", function()
     notify_random(messages.cut, vim.log.levels.WARN, lines_str(vim.fn.getreg("+")))
 end, opts)
 
-vim.keymap.set("v", "u", "<Esc>u", { noremap = true, silent = true })
-
 -- TODO: Redoの操作要検討
 -- vim.keymap.set("n", "y", "<C-r>", { noremap = true, silent = true })
 -- vim.keymap.set("v", "y", "<Esc><C-r>", { noremap = true, silent = true })
