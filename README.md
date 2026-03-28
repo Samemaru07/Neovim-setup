@@ -426,6 +426,6 @@ WSLの手順[3. 公開鍵認証 (GitHub) の設定](<#3.-公開鍵認証-(github
 
 ## 📄 ライセンス
 
-MIT License © 2025 Samemaru07
+MIT License © 2026 Samemaru07
 
 詳細は [LICENSE](./LICENSE) を参照してください。
