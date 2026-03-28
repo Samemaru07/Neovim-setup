@@ -263,6 +263,54 @@ WSLの手順[3. 公開鍵認証 (GitHub) の設定](<#3.-公開鍵認証-(github
 | [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)                                 | Lua関数ライブラリ  |
 | [dressing.nvim](https://github.com/stevearc/dressing.nvim)                               | UI選択拡張         |
 
+## ツール一覧
+
+### フォーマッター
+
+| ツール名               | 対象言語                                     |
+| ---------------------- | -------------------------------------------- |
+| prettier               | HTML、JavaScript、TypeScript、JSON、Markdown |
+| black                  | Python                                       |
+| clang_format           | C、C++、Processing                           |
+| pint                   | PHP                                          |
+| stylua                 | Lua                                          |
+| shfmt                  | Shell                                        |
+| pg_format              | SQL                                          |
+| latexindent            | LaTeX、BibTeX                                |
+| verible-verilog-format | Verilog                                      |
+| goimports              | Go                                           |
+| qmlformat              | QML                                          |
+| markdownlint           | Markdown                                     |
+
+### Linter
+
+| ツール名   | 対象言語 |
+| ---------- | -------- |
+| ruff       | Python   |
+| ghdl       | VHDL     |
+| shellcheck | Shell    |
+
+### LaTeX
+
+| ツール名      | 説明                  |
+| ------------- | --------------------- |
+| latexmk       | LaTeX自動ビルドツール |
+| lualatex      | LaTeXエンジン         |
+| neovim-remote | vimtex用リモート操作  |
+
+### SKK辞書
+
+| 辞書名       | 説明                    |
+| ------------ | ----------------------- |
+| SKK-JISYO.L  | SKK辞書（システム辞書） |
+| ~/.skkeleton | SKKユーザー辞書         |
+
+### オーディオ
+
+| ツール名 | 説明       |
+| -------- | ---------- |
+| paplay   | 通知音再生 |
+
 <!-- > **環境別の読み替えについて:**\ -->
 <!-- > 以下のインストール方法は**WSL (Ubuntu) ** を基準に記載しています。**Arch Linux**をお使いの場合は、`apt`→`pacman -S` / `yay -S`に読み替えてください。 -->
 <!---->
