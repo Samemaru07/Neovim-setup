@@ -20,3 +20,29 @@
 - 🌸 ダッシュボード: 園崎 魅音ちゃんのアスキーアートとセリフで出迎え (**ひぐらしのなく頃に**)
 - 💬 通知: ヤンク・ペースト・削除のたびにキャラからメッセージが届く (**コードギアス・青ブタ・艦これ・チェンソーマン**)
 - ⚔️ ステータスライン: 「保存しておけばどうということはない！」、「そんなファイル、保存してやる！！」 (**機動戦士ガンダム & Zガンダム**)
+
+## 前提条件
+
+| ツール                                 | 備考                                                                                                  |
+| -------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| Neovim >= 0.10                         | aptのものは古い為[公式](https://github.com/neovim/neovim/releases)から最新版を導入                    |
+| Git                                    | lazy.nvimのプラグイン取得に必要                                                                       |
+| SSHキー                                | GitHubへのSSHキー登録と`ssh-agent`の起動が必要(`eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_ed25519`) |
+| build-essential (gcc / make)           | Mason経由のLSPサーバのビルドに必要                                                                    |
+| ripgrep                                | Telescopeのファイル検索に必要                                                                         |
+| fd                                     | 同上                                                                                                  |
+| Node.js (LTS)                          | aptのものは古い為[NodeSource](https://github.com/nodesource/distributions)経由で導入                  |
+| Python3 + pip                          | `pynvim`のインストールに必要                                                                          |
+| Go                                     | aptのものは古い為[公式](https://go.dev/dl)                                                            |
+| Rust (cargo)                           | `stylua`のインストールに必要                                                                          |
+| Deno                                   | SKKプラグインで使用                                                                                   |
+| lazygit                                | Git操作UI                                                                                             |
+| [NerdFont](https://www.nerdfonts.com/) | アイコン表示に必要 (ターミナル側の設定)                                                               |
+
+> **WSL (Ubuntu) ユーザへ:**
+> aptのパッケージはNeovim・Node.js・Goが古い為、上記リンクから最新版を導入してください。
+> また、クリップボード連携に`win32yank.exe`が必要です。
+> [こちら](https://github.com/equalsraf/win32yank/releases)から`win32yank`を`C:\tools\`に配置してください。
+
+> **一括セットアップ:**
+> [dotfiles](https://github.com/Samemaru07/dotfiles)のインストールスクリプト`bootstrap.sh`を使うとNeovim本体含む上記ツールを自動で導入できます。
