@@ -64,7 +64,17 @@ cmp.setup({
 	}),
 	sources = cmp.config.sources({
 		{ name = "luasnip", keyword_length = 1 },
-		{ name = "nvim_lsp", keyword_length = 1 },
+		{
+			name = "nvim_lsp",
+			keyword_length = 1,
+			entry_filter = function(entry)
+				-- Luaファイルで"require"がLSPから来る場合はフィルタリング（スニペットを優先）
+				if vim.bo.filetype == "lua" and entry:get_word() == "require" then
+					return false
+				end
+				return true
+			end,
+		},
 		{ name = "skkeleton", keyword_length = 1 },
 	}, {
 		{ name = "buffer" },
