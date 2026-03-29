@@ -8,9 +8,11 @@
 
 > [dotfiles](https://github.com/Samemaru07/dotfiles)のサブモジュールとして管理されています。
 
-<!-- TODO: dashboard -->
-<!-- TODO: 実際にファイルを作成編集している様子。-->
 <!-- TODO: 通知とステータスラインのコラージュ画像-->
+
+![demo-dashboard](assets/nvim-dashboard.png)
+
+![demo-lsp](assets/nvim-lsp.gif)
 
 ## ⭐ 特徴
 
@@ -473,6 +475,8 @@ Neovimを起動するたびに、「ひぐらしのなく頃に」より、**園
 登場作品は、「コードギアス」、「蒼穹のファフナー」、「青ブタ」、「艦これ」、「チェンソーマン」。
 
 #### お気に入りのメッセージたち
+
+![nvim-notigy](assets/nvim-notify.JPEG)
 
 > `%s`は、`n行`に置き換えてください。<操作した行数+"行">のプレースホルダーです。
 
