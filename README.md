@@ -1,13 +1,23 @@
 # 🌊 Neovim Setup
 
 <div align="center">
-    <h3>アニメキャラが見守る、Arch Linux / WSL向けのNeovim設定</h3>
+    <h3>アニメキャラが見守るNeovim設定</h3>
 </div>
 
 <div align="center">
     <h5>思考の速度でコードを書くことが楽しくなる最高のエディタがここに。</h5>
 </div>
 
+<div align="center">
+
+[![Editor](https://img.shields.io/badge/Editor-Neovim-57A143?style=flat-square&logo=neovim&logoColor=white)](https://neovim.io)
+[![Language](https://img.shields.io/badge/Language-Lua-2C2D72?style=flat-square&logo=lua&logoColor=white)](https://www.lua.org)
+[![Plugin Manager](https://img.shields.io/badge/Plugin%20Manager-lazy.nvim-4A90D9?style=flat-square)](https://github.com/folke/lazy.nvim)
+[![License](https://img.shields.io/badge/License-MIT-888780?style=flat-square)](./LICENSE)
+
+</div>
+
+> [!NOTE]
 > [dotfiles](https://github.com/Samemaru07/dotfiles)のサブモジュールとして管理されています。
 
 ![dashboard](assets/nvim-dashboard.png)
@@ -27,6 +37,7 @@
 
 ## 📋 前提条件
 
+- **Windows native環境 (`nvim.exe`) は現在非推奨**です。WSLの使用を推奨します。
 - Neovim >= 0.10が必要です。また、いくつかのツールはバージョンが重要な為、`apt`のものは古い場合があります。詳しくは[インストールセクション](#🚀-インストール)に従ってください。
 
 ## 🚀 インストール
@@ -37,6 +48,103 @@
 詳細はdotfilesの[README](https://github.com/Samemaru07/dotfiles)を参照してください。
 
 ### このリポジトリを単体で使う場合
+
+<details>
+<summary>macOS</summary>
+
+##### 1. Homebrewのインストール
+
+まだインストールしていない場合：
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+##### 2. 必要なツールのインストール
+
+```bash
+brew install neovim git curl ripgrep fd node go rust shellcheck shfmt llvm
+```
+
+> [!NOTE]
+> `llvm`をインストールすることで`clang-format`が使えるようになります。
+
+##### 3. Python (通常macOSに付属)
+
+```bash
+python3 --version
+pip3 --version
+```
+
+もしPythonがない場合：
+
+```bash
+brew install python3
+```
+
+##### 4. オプション: Denoのインストール
+
+```bash
+brew install deno
+```
+
+##### 5. Nerd Fontのインストール (推奨)
+
+アイコン表示のため、Nerd Fontをインストールすることを推奨します。
+
+```bash
+brew tap homebrew/cask-fonts
+brew install --cask font-hack-nerd-font
+# または
+brew install --cask font-jetbrains-mono-nerd-font
+```
+
+インストール後、ターミナルアプリの設定でフォントを変更してください。
+
+##### 6. 公開鍵認証 (GitHub) の設定
+
+```bash
+ssh-keygen -t ed25519 -C "<your@mail>"
+ssh-add ~/.ssh/id_ed25519
+cat ~/.ssh/id_ed25519.pub
+```
+
+> [!IMPORTANT]
+> この設定では、`.gitconfig`に以下の記述がある為、lazy.nvimのプラグインcloneがSSH経由になります。
+
+```
+    [url "git@github.com:"]
+        insteadOf = https://github.com/
+```
+
+> [!WARNING]
+> その為、Neovim初回起動前にSSH Agentが起動している必要があります。
+> macOSでは通常自動的にSSH Agentが起動していますが、手動で起動する場合は`eval "$(ssh-agent -s)"`を実行してください。
+
+- 出力された公開鍵を[GitHub](https://github.com/settings/keys)に登録。
+- 確認
+
+```bash
+    ssh -T git@github.com
+```
+
+##### 7. クローン
+
+```bash
+git clone https://github.com/Samemaru07/Neovim-setup.git ~/.config/nvim
+```
+
+##### 8. Neovimを起動
+
+```bash
+nvim
+```
+
+> [!TIP]
+> 起動するとlazy.nvimが自動でプラグインをインストールします。
+> Masonも自動でLSPサーバをセットアップします。
+
+</details>
 
 <details>
 <summary>WSL (Ubuntu)</summary>
@@ -110,13 +218,15 @@ ssh-add ~/.ssh/id_ed25519
 cat ~/.ssh/id_ed25519.pub
 ```
 
-> **Note:** この設定では、`.gitconfig`に以下の記述がある為、lazy.nvimのプラグインcloneがSSH経由になります。
+> [!IMPORTANT]
+> この設定では、`.gitconfig`に以下の記述がある為、lazy.nvimのプラグインcloneがSSH経由になります。
 
 ```
     [url "git@github.com:"]
         insteadOf = https://github.com/
 ```
 
+> [!WARNING]
 > その為、Neovim初回起動前にSSH Agentが起動している必要があります。
 > `.zshrc`にSSH Agentの自動起動を追記するか、エージェントに秘密鍵を登録する前に、手動で`eval "$(ssh-agent -s)"`を実行してください。
 
@@ -139,6 +249,7 @@ git clone https://github.com/Samemaru07/Neovim-setup.git ~/.config/nvim
 nvim
 ```
 
+> [!TIP]
 > 起動するとlazy.nvimが自動でプラグインをインストールします。
 > Masonも自動でLSPサーバをセットアップします。
 
@@ -164,6 +275,7 @@ sudo pacman -S neovim
 
 WSLの手順[3. 公開鍵認証 (GitHub) の設定](<#3.-公開鍵認証-(github)-の設定>) ~ と同様に。
 
+> [!TIP]
 > 起動するとlazy.nvimが自動でプラグインをインストールします。
 > Masonも自動でLSPサーバをセットアップします。
 
@@ -551,6 +663,7 @@ Neovimを起動するたびに、「ひぐらしのなく頃に」より、**園
 
 ### 通知メッセージ
 
+> [!NOTE]
 > ヤンクに通知を設定していません。通知はコピー・ペースト・カット・デリートのみに対応しています。
 
 操作に応じて、アニメキャラクターたちからランダムに通知が届く。
@@ -560,6 +673,7 @@ Neovimを起動するたびに、「ひぐらしのなく頃に」より、**園
 
 ![nvim-notigy](assets/nvim-notify.JPEG)
 
+> [!NOTE]
 > `%s`は、`n行`に置き換えてください。<操作した行数+"行">のプレースホルダーです。
 
 | 操作     | キャラクター            | メッセージ                                                                                                                |
