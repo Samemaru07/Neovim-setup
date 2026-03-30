@@ -20,7 +20,6 @@
 *.bak
 *.tmp
 
-/README.md
 /docs/
 /package.json
 /package-lock.json

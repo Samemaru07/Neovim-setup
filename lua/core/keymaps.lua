@@ -77,7 +77,7 @@ map({ "n", "v" }, "<leader>sq", function()
     vim.cmd("bdelete")
 end, opts)
 
-map("n", "<leader>q", "<cmd>bdelete!<CR>", opts)
+map("n", "<leader>q", "<cmd>Bdelete!<CR>", opts)
 
 map({ "n", "i" }, "<C-S-s>", function()
     format_and_save()
@@ -201,7 +201,7 @@ map("n", "xx", function()
     notify_random(messages.cut, vim.log.levels.WARN, "1行")
 end, opts)
 
-map("v", "d", function()
+map("x", "d", function()
     local old_shortmess = vim.o.shortmess
     vim.o.shortmess = old_shortmess .. "A"
     vim.cmd('noautocmd silent! normal! "_d')
@@ -210,7 +210,7 @@ map("v", "d", function()
     notify_random(messages.delete, vim.log.levels.WARN, lines_str(vim.fn.getreg('"')))
 end, opts)
 
-map("v", "x", function()
+map("x", "x", function()
     local old_shortmess = vim.o.shortmess
     vim.o.shortmess = old_shortmess .. "A"
     vim.cmd('noautocmd silent! normal! "+d')
@@ -218,8 +218,6 @@ map("v", "x", function()
 
     notify_random(messages.cut, vim.log.levels.WARN, lines_str(vim.fn.getreg("+")))
 end, opts)
-
-vim.keymap.set("v", "u", "<Esc>u", { noremap = true, silent = true })
 
 -- TODO: Redoの操作要検討
 -- vim.keymap.set("n", "y", "<C-r>", { noremap = true, silent = true })
