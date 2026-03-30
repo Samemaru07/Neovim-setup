@@ -1,10 +1,12 @@
 # 🌊 Neovim Setup
 
-### アニメキャラが見守る、Arch Linux / WSL 向けのNeovim設定。
+<div align="center">
+    <h3>アニメキャラが見守る、Arch Linux / WSL向けのNeovim設定</h3>
+</div>
 
-#### **思考の速度でコード**を書くことが楽しくなる最高のエディタがここに。
-
-<!-- TODO: 中央寄せにしたほうがいいかも？-->
+<div align="center">
+    <h5>思考の速度でコードを書くことが楽しくなる最高のエディタがここに。</h5>
+</div>
 
 > [dotfiles](https://github.com/Samemaru07/dotfiles)のサブモジュールとして管理されています。
 
@@ -29,14 +31,15 @@
 
 ## 🚀 インストール
 
-### dotfilesごと使う場合（推奨）
+### dotfilesごと使う場合 (推奨)
 
 [dotfiles](https://github.com/Samemaru07/dotfiles)を`--recurse-submodules`でcloneしてください。
 詳細はdotfilesの[README](https://github.com/Samemaru07/dotfiles)を参照してください。
 
-### このリポジトリ単体で使う場合
+### このリポジトリを単体で使う場合
 
-#### WSL (Ubuntu)
+<details>
+<summary>WSL (Ubuntu)</summary>
 
 ##### 0. 事前準備 (Windows)
 
@@ -139,7 +142,10 @@ nvim
 > 起動するとlazy.nvimが自動でプラグインをインストールします。
 > Masonも自動でLSPサーバをセットアップします。
 
-#### Arch Linux
+</details>
+
+<details>
+<summary>Arch Linux</summary>
 
 ##### 1. 基本ツールのインストール
 
@@ -161,9 +167,12 @@ WSLの手順[3. 公開鍵認証 (GitHub) の設定](<#3.-公開鍵認証-(github
 > 起動するとlazy.nvimが自動でプラグインをインストールします。
 > Masonも自動でLSPサーバをセットアップします。
 
+</details>
+
 ## 🔌 プラグイン一覧
 
-### UI
+<details>
+<summary>UI</summary>
 
 | プラグイン名                                                        | 説明                     |
 | ------------------------------------------------------------------- | ------------------------ |
@@ -186,7 +195,10 @@ WSLの手順[3. 公開鍵認証 (GitHub) の設定](<#3.-公開鍵認証-(github
 | [neoscroll.nvim](https://github.com/karb94/neoscroll.nvim)          | スムーススクロール       |
 | [dropbar.nvim](https://github.com/Bekaboo/dropbar.nvim)             | ウィンバーナビゲーション |
 
-### LSP
+</details>
+
+<details>
+<summary>LSP</summary>
 
 | プラグイン名                                                                              | 説明                        |
 | ----------------------------------------------------------------------------------------- | --------------------------- |
@@ -198,7 +210,10 @@ WSLの手順[3. 公開鍵認証 (GitHub) の設定](<#3.-公開鍵認証-(github
 | [luvit-meta](https://github.com/Bilal2453/luvit-meta)                                     | Lua型定義                   |
 | [fidget.nvim](https://github.com/j-hui/fidget.nvim)                                       | LSP進捗表示                 |
 
-### 補完
+</details>
+
+<details>
+<summary>補完</summary>
 
 | プラグイン名                                                                        | 説明                     |
 | ----------------------------------------------------------------------------------- | ------------------------ |
@@ -216,7 +231,10 @@ WSLの手順[3. 公開鍵認証 (GitHub) の設定](<#3.-公開鍵認証-(github
 | [skkeleton_indicator.nvim](https://github.com/delphinus/skkeleton_indicator.nvim)   | SKKモード表示            |
 | [skkeleton-henkan-highlight](https://github.com/NI57721/skkeleton-henkan-highlight) | SKK変換ハイライト        |
 
-### エディタ
+</details>
+
+<details>
+<summary>エディタ</summary>
 
 | プラグイン名                                                                                    | 説明                   |
 | ----------------------------------------------------------------------------------------------- | ---------------------- |
@@ -231,7 +249,10 @@ WSLの手順[3. 公開鍵認証 (GitHub) の設定](<#3.-公開鍵認証-(github
 | [emmet-vim](https://github.com/mattn/emmet-vim)                                                 | HTML/CSS展開           |
 | [beacon.nvim](https://github.com/rainbowhxch/beacon.nvim)                                       | カーソル位置強調       |
 
-### 言語
+</details>
+
+<details>
+<summary>言語</summary>
 
 | プラグイン名                                                                     | 説明                  |
 | -------------------------------------------------------------------------------- | --------------------- |
@@ -245,7 +266,10 @@ WSLの手順[3. 公開鍵認証 (GitHub) の設定](<#3.-公開鍵認証-(github
 | [bibcite.nvim](https://github.com/aidavdw/bibcite.nvim)                          | BibTeX管理            |
 | [vim-processing](https://github.com/sophacles/vim-processing)                    | Processing対応        |
 
-### ツール
+</details>
+
+<details>
+<summary>ツール</summary>
 
 | プラグイン名                                                                             | 説明               |
 | ---------------------------------------------------------------------------------------- | ------------------ |
@@ -265,9 +289,12 @@ WSLの手順[3. 公開鍵認証 (GitHub) の設定](<#3.-公開鍵認証-(github
 | [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)                                 | Lua関数ライブラリ  |
 | [dressing.nvim](https://github.com/stevearc/dressing.nvim)                               | UI選択拡張         |
 
+</details>
+
 ## ツール一覧
 
-### フォーマッター
+<details>
+<summary>フォーマッタ</summary>
 
 | ツール名               | 対象言語                                     |
 | ---------------------- | -------------------------------------------- |
@@ -284,7 +311,10 @@ WSLの手順[3. 公開鍵認証 (GitHub) の設定](<#3.-公開鍵認証-(github
 | qmlformat              | QML                                          |
 | markdownlint           | Markdown                                     |
 
-### Linter
+</details>
+
+<details>
+<summary>Linter</summary>
 
 | ツール名   | 対象言語 |
 | ---------- | -------- |
@@ -292,7 +322,10 @@ WSLの手順[3. 公開鍵認証 (GitHub) の設定](<#3.-公開鍵認証-(github
 | ghdl       | VHDL     |
 | shellcheck | Shell    |
 
-### LaTeX
+</details>
+
+<details>
+<summary>LaTeX</summary>
 
 | ツール名      | 説明                  |
 | ------------- | --------------------- |
@@ -300,18 +333,26 @@ WSLの手順[3. 公開鍵認証 (GitHub) の設定](<#3.-公開鍵認証-(github
 | lualatex      | LaTeXエンジン         |
 | neovim-remote | vimtex用リモート操作  |
 
-### SKK辞書
+</details>
+
+<details>
+<summary>SKK辞書</summary>
 
 | 辞書名       | 説明                    |
 | ------------ | ----------------------- |
 | SKK-JISYO.L  | SKK辞書（システム辞書） |
 | ~/.skkeleton | SKKユーザー辞書         |
 
-### オーディオ
+</details>
+
+<details>
+<summary>オーディオ</summary>
 
 | ツール名 | 説明       |
 | -------- | ---------- |
 | paplay   | 通知音再生 |
+
+</details>
 
 ## ⌨️ キーマップ一覧
 
@@ -320,7 +361,8 @@ WSLの手順[3. 公開鍵認証 (GitHub) の設定](<#3.-公開鍵認証-(github
   [^footnote]: `s`(セレクト) と `o`(オペレータ待機)は主にプラグインが内部で使用するモードです。通常操作で意識する必要はありません。
 - レジスタに送る操作を"ヤンク"、システムクリップボードに送る操作を"コピー"・"カット"と呼んでいます。
 
-### 基本操作
+<details>
+<summary>基本操作</summary>
 
 | キー                     | モード        | 動作                               |
 | ------------------------ | ------------- | ---------------------------------- |
@@ -350,7 +392,10 @@ WSLの手順[3. 公開鍵認証 (GitHub) の設定](<#3.-公開鍵認証-(github
 | `<S-e>`                  | n, v          | 対応する括弧へジャンプ             |
 | `zz / zt / zb`           | n             | カーソル行を中央/上/下に           |
 
-### LSP
+</details>
+
+<details>
+<summary>LSP</summary>
 
 | キー         | モード | 動作             |
 | ------------ | ------ | ---------------- |
@@ -364,7 +409,10 @@ WSLの手順[3. 公開鍵認証 (GitHub) の設定](<#3.-公開鍵認証-(github
 | `]d`         | n      | 次の診断へ移動   |
 | `<leader>dl` | n      | 診断詳細表示     |
 
-### ファイル・検索
+</details>
+
+<details>
+<summary>ファイル・検索</summary>
 
 | キー         | モード | 動作                       |
 | ------------ | ------ | -------------------------- |
@@ -378,7 +426,10 @@ WSLの手順[3. 公開鍵認証 (GitHub) の設定](<#3.-公開鍵認証-(github
 | `<leader>fc` | n      | 検索置換UI（Spectre）      |
 | `<leader>e`  | n      | ファイルツリートグル       |
 
-### バッファ
+</details>
+
+<details>
+<summary>バッファ</summary>
 
 | キー          | モード | 動作                       |
 | ------------- | ------ | -------------------------- |
@@ -388,14 +439,20 @@ WSLの手順[3. 公開鍵認証 (GitHub) の設定](<#3.-公開鍵認証-(github
 | `<leader>bv`  | n, v   | 垂直分割 (左右に2枚並べる) |
 | `<leader>bh`  | n, v   | 水平分割 (上下に2枚並べる) |
 
-### デバッグ
+</details>
+
+<details>
+<summary>デバッグ</summary>
 
 | キー         | モード | 動作                   |
 | ------------ | ------ | ---------------------- |
 | `<leader>db` | n      | ブレークポイントトグル |
 | `<leader>dc` | n      | デバッグ実行/継続      |
 
-### ターミナル
+</details>
+
+<details>
+<summary>ターミナル</summary>
 
 | キー             | モード | 動作                         |
 | ---------------- | ------ | ---------------------------- |
@@ -405,7 +462,10 @@ WSLの手順[3. 公開鍵認証 (GitHub) の設定](<#3.-公開鍵認証-(github
 | `<C-h>`          | t      | Backspace                    |
 | `<C-l>`          | t      | Delete                       |
 
-### SKK（日本語入力）
+</details>
+
+<details>
+<summary>SKK (日本語入力)</summary>
 
 | キー    | モード | 動作             |
 | ------- | ------ | ---------------- |
@@ -414,7 +474,21 @@ WSLの手順[3. 公開鍵認証 (GitHub) の設定](<#3.-公開鍵認証-(github
 | `q`     | SKK    | カタカナ変換     |
 | `Q`     | SKK    | 半角カタカナ変換 |
 
-### その他
+</details>
+
+<details>
+<summary>パンくずナビゲーション (dropbar)</summary>
+
+| キー        | モード | 動作                             |
+| ----------- | ------ | -------------------------------- |
+| `<leader>;` | n      | シンボル選択（winbar）           |
+| `[;`        | n      | カレントコンテキストの開始へ移動 |
+| `];`        | n      | 次のコンテキストを選択           |
+
+</details>
+
+<details>
+<summary>その他</summary>
 
 | キー         | モード | 動作                          |
 | ------------ | ------ | ----------------------------- |
@@ -425,6 +499,8 @@ WSLの手順[3. 公開鍵認証 (GitHub) の設定](<#3.-公開鍵認証-(github
 | `<leader>cq` | n      | 引用符を括弧に変更            |
 | `<leader>z`  | n      | カーソル位置を強調表示        |
 | `<leader>rr` | n      | Neovim設定リロード            |
+
+</details>
 
 ## ✨ こだわりポイント
 
@@ -445,21 +521,16 @@ SKKの入力モードをステータスラインに表示する。
 
 Neovimを起動するたびに、「ひぐらしのなく頃に」より、**園崎 魅音**ちゃんのアスキーアートとセリフが出迎えてくれる。
 
-<!-- TODO: GitHubで、中央にする-->
-
-**私の初恋の娘です**
+<div align="center"><h5>私の初恋の娘です</h5></div>
 
 ![dashboard-simple](assets/nvim-dashboard_simple.png)
 
 > 『よーし、頑張ってこー！無理しすぎんなよ？......ふふ、なんかそうやって頑張ってるの、見てるといいなって思うんだ。』
 
-<!-- TODO: GitHubで、中央にする-->
+<div align="center"><h5>ぜひお嫁さんになっていただきたい。</h5></div>
 
-##### ぜひお嫁さんになっていただきたい。
-
-<!-- TODO: GitHubで、折り畳みに対応させる-->
-
-#### 点字アスキーアート (参考までに)
+<details>
+<summary>点字アスキーアートの作り方</summary>
 
 [こちら](https://lazesoftware.com/ja/tool/brailleaagen/)のサイトで作成しました。
 
@@ -469,14 +540,16 @@ Neovimを起動するたびに、「ひぐらしのなく頃に」より、**園
     - また、背景もそのままAAになると魅音ちゃんが目立たないので、背景は白で塗り潰しておきます。
 2. 上記のリンクにアクセスし、`画像から`を選択し、`拡大縮小`の割合を30%ほどに、`詳細設定`を開き`ネガポジ反転する`にチェックを入れ、`実行`ボタンを押す。
     - フォントサイズを実際のフォントサイズに調整し、黒背景にすると見やすいです。(この`結果`のテキストブロックの大きさも調整できます。)
-3. `クリップボードにコピー`ボタンを押し、`lua/ui/dashboard.lua`の`dashboard_ascii`に代入。- セリフが見えるように、多少上下をカットするのがベスト。
-    > 魅音ちゃんの画像は[コチラ](https://x.com/5sVzDwTrW9kzYjs/status/1810690455992205717)
+3. `クリップボードにコピー`ボタンを押し、`lua/ui/dashboard.lua`の`dashboard_ascii`に代入。
+    - セリフが見えるように、多少上下をカットするのがベスト。
 
 ![dashboard-making](assets/dashboard-making-figure.PNG)
 
-### 通知メッセージ
+> 魅音ちゃんの画像は[コチラ](https://x.com/5sVzDwTrW9kzYjs/status/1810690455992205717)
 
-<!-- TODO: GitHubで、折り畳みに対応させる-->
+</details>
+
+### 通知メッセージ
 
 > ヤンクに通知を設定していません。通知はコピー・ペースト・カット・デリートのみに対応しています。
 
@@ -495,11 +568,10 @@ Neovimを起動するたびに、「ひぐらしのなく頃に」より、**園
 | ペースト | 吹雪 (艦これ)           | おまたせしましたっ！<br>%s貼りつけました！えへへ、...上手くいったかな？吹雪、もうちょっと自信ついちゃいそうです！         |
 | カット   | パワ子 (チェンソーマン) | さあ、続けなさい<br>%sをブチっと切ったのじゃ！はーっはっはっ！我が手にかかれば何でも消えるのじゃ！...で、これどうすんの？ |
 
-<!-- TODO: GitHubで、中央にする-->
+<div align="center"><h5>尊い。尊すぎるよ。</h5></div>
 
-##### 尊い。尊すぎるよ。
-
-<!-- TODO: GitHubで、折り畳みに対応させる-->
+<details>
+<summary>メッセージの変更方法</summary>
 
 - メッセージを編集したい場合は`lua/data/messages.lua`を変更してください。
 
@@ -510,6 +582,8 @@ Neovimを起動するたびに、「ひぐらしのなく頃に」より、**園
         -- %sで<n行>が埋め込まれます。
     },
 ```
+
+</details>
 
 ### ステータスライン
 
@@ -526,11 +600,10 @@ Neovimを起動するたびに、「ひぐらしのなく頃に」より、**園
 > 「当たらなければどうということはない！」(シャア・アズナブル / 機動戦士ガンダム 第2話「ガンダム破壊命令」)\
 > 「そんな大人、修正してやる！」(カミーユ・ビダン / 機動戦士Zガンダム 第13話「シャトル発進」)
 
-<!-- TODO: GitHubで、中央にする-->
+<div align="center"><h5>私が思いついたのはこの程度ですが、非常に満足しています</h5></div>
 
-##### 私が思いついたのはこの程度ですが、非常に満足しています
-
-<!-- TODO: GitHubで、折り畳みに対応させる -->
+<details>
+<summary>ステータスメッセージの変更方法</summary>
 
 - ステータスメッセージを編集したい場合は、`lua/ui/lualine.lua`の`lualine_c`テーブルの部分を変更してください。
 
@@ -560,6 +633,8 @@ Neovimを起動するたびに、「ひぐらしのなく頃に」より、**園
         },
 
 ```
+
+</details>
 
 ## 📄 ライセンス
 
