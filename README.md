@@ -66,8 +66,7 @@
 brew install neovim git curl ripgrep fd node go rust shellcheck shfmt llvm
 ```
 
-> [!NOTE]
-> `llvm`をインストールすることで`clang-format`が使えるようになります。
+> **📌 Note:** `llvm`をインストールすることで`clang-format`が使えるようになります。
 
 ##### 3. Python (通常macOSに付属)
 
@@ -109,16 +108,14 @@ ssh-add ~/.ssh/id_ed25519
 cat ~/.ssh/id_ed25519.pub
 ```
 
-> [!IMPORTANT]
-> この設定では、`.gitconfig`に以下の記述がある為、lazy.nvimのプラグインcloneがSSH経由になります。
+> **🔴 Important:** この設定では、`.gitconfig`に以下の記述がある為、lazy.nvimのプラグインcloneがSSH経由になります。
 
 ```
     [url "git@github.com:"]
         insteadOf = https://github.com/
 ```
 
-> [!WARNING]
-> その為、Neovim初回起動前にSSH Agentが起動している必要があります。
+> **⚠️ Warning:** その為、Neovim初回起動前にSSH Agentが起動している必要があります。
 > macOSでは通常自動的にSSH Agentが起動していますが、手動で起動する場合は`eval "$(ssh-agent -s)"`を実行してください。
 
 - 出力された公開鍵を[GitHub](https://github.com/settings/keys)に登録。
@@ -140,8 +137,7 @@ git clone https://github.com/Samemaru07/Neovim-setup.git ~/.config/nvim
 nvim
 ```
 
-> [!TIP]
-> 起動するとlazy.nvimが自動でプラグインをインストールします。
+> **💡 Tip:** 起動するとlazy.nvimが自動でプラグインをインストールします。
 > Masonも自動でLSPサーバをセットアップします。
 
 </details>
@@ -218,16 +214,14 @@ ssh-add ~/.ssh/id_ed25519
 cat ~/.ssh/id_ed25519.pub
 ```
 
-> [!IMPORTANT]
-> この設定では、`.gitconfig`に以下の記述がある為、lazy.nvimのプラグインcloneがSSH経由になります。
+> **🔴 Important:** この設定では、`.gitconfig`に以下の記述がある為、lazy.nvimのプラグインcloneがSSH経由になります。
 
 ```
     [url "git@github.com:"]
         insteadOf = https://github.com/
 ```
 
-> [!WARNING]
-> その為、Neovim初回起動前にSSH Agentが起動している必要があります。
+> **⚠️ Warning:** その為、Neovim初回起動前にSSH Agentが起動している必要があります。
 > `.zshrc`にSSH Agentの自動起動を追記するか、エージェントに秘密鍵を登録する前に、手動で`eval "$(ssh-agent -s)"`を実行してください。
 
 - 出力された公開鍵を[GitHub](https://github.com/settings/keys)に登録。
@@ -249,8 +243,7 @@ git clone https://github.com/Samemaru07/Neovim-setup.git ~/.config/nvim
 nvim
 ```
 
-> [!TIP]
-> 起動するとlazy.nvimが自動でプラグインをインストールします。
+> **💡 Tip:** 起動するとlazy.nvimが自動でプラグインをインストールします。
 > Masonも自動でLSPサーバをセットアップします。
 
 </details>
@@ -275,8 +268,7 @@ sudo pacman -S neovim
 
 WSLの手順[3. 公開鍵認証 (GitHub) の設定](<#3.-公開鍵認証-(github)-の設定>) ~ と同様に。
 
-> [!TIP]
-> 起動するとlazy.nvimが自動でプラグインをインストールします。
+> **💡 Tip:** 起動するとlazy.nvimが自動でプラグインをインストールします。
 > Masonも自動でLSPサーバをセットアップします。
 
 </details>
