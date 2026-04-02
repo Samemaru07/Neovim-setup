@@ -1,5 +1,7 @@
 # 🌊 Neovim Setup
 
+###### 🇯🇵 日本語 | 🇺🇸 [English](./README.en.md)
+
 <div align="center">
     <h3>アニメキャラが見守るNeovim設定</h3>
 </div>
@@ -395,7 +397,7 @@ WSLの手順[3. 公開鍵認証 (GitHub) の設定](<#3.-公開鍵認証-(github
 
 </details>
 
-## ツール一覧
+## 🛠️ ツール一覧
 
 <details>
 <summary>フォーマッタ</summary>
