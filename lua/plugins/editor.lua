@@ -86,12 +86,11 @@ return {
         "kylechui/nvim-surround",
         version = "*",
         event = "VeryLazy",
+        init = function()
+            vim.g.nvim_surround_no_insert_mappings = true
+        end,
         config = function()
             require("nvim-surround").setup({
-                keymaps = {
-                    insert = false,
-                    insert_line = false,
-                },
                 surrounds = {
                     ["q"] = {
                         add = { "\u{201C}", "\u{201D}" },
