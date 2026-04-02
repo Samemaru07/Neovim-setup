@@ -40,7 +40,7 @@
 ## 📋 Prerequisites
 
 - **Windows native (`nvim.exe`) is currently not recommended.** Please use WSL instead.
-- Neovim >= 0.10 is required. Some tools are version-sensitive - packages from `apt` may be outdated. Follow the [Installation section](#🚀-installation) for details.
+- Neovim >= 0.10 is required. Some tools are version-sensitive - packages from `apt` may be outdated. Follow the [Installation section](#-installation) for details.
 
 ## 🚀 Installation
 
@@ -156,7 +156,7 @@ nvim
 
 ```bash
 sudo apt update
-sudo apt install -y git curl build-essential zsh ripgrep fd-find pulseaudio-utils xclip python3 python3-pip shellcheck shfmt clang-format
+sudo apt install -y git curl build-essential zsh ripgrep fd-find pulseaudio-utils xclip python3 python3-pip shellcheck shfmt clang-format wslu
 sudo ln -sf "$(which fdfind)" /usr/local/bin/fd
 ```
 
@@ -266,7 +266,7 @@ sudo pacman -S neovim
 
 ##### 3. Onwards
 
-Follow the same steps as WSL, starting from [3. Set up SSH key authentication (GitHub)](#3-set-up-ssh-key-authentication-github).
+Follow the same steps as WSL, starting from step 3: Set up SSH key authentication (GitHub).
 
 > **💡 Tip:** On first launch, lazy.nvim will automatically install all plugins.
 > Mason will also set up LSP servers automatically.
@@ -663,6 +663,7 @@ Created using [this tool](https://lazesoftware.com/en/tool/brailleaagen/).
 
 Anime characters send you random notifications based on your action.
 Characters are from: _Code Geass_, _Fafner in the Azure_, _Rascal Does Not Dream_, _Kantai Collection_, and _Chainsaw Man_.
+Note that the notification messages themselves are written in Japanese.
 
 #### Favorite Messages
 

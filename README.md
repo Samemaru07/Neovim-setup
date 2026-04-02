@@ -40,7 +40,7 @@
 ## 📋 前提条件
 
 - **Windows native環境 (`nvim.exe`) は現在非推奨**です。WSLの使用を推奨します。
-- Neovim >= 0.10が必要です。また、いくつかのツールはバージョンが重要な為、`apt`のものは古い場合があります。詳しくは[インストールセクション](#🚀-インストール)に従ってください。
+- Neovim >= 0.10が必要です。また、いくつかのツールはバージョンが重要な為、`apt`のものは古い場合があります。詳しくは[インストールセクション](#-インストール)に従ってください。
 
 ## 🚀 インストール
 
@@ -158,7 +158,7 @@ nvim
 
 ```bash
 sudo apt update
-sudo apt install -y git curl build-essential zsh ripgrep fd-find pulseaudio-utils xclip python3 python3-pip shellcheck shfmt clang-format
+sudo apt install -y git curl build-essential zsh ripgrep fd-find pulseaudio-utils xclip python3 python3-pip shellcheck shfmt clang-format wslu
 sudo ln -sf "$(which fdfind)" /usr/local/bin/fd
 ```
 
@@ -268,7 +268,7 @@ sudo pacman -S neovim
 
 ##### 3. 以降
 
-WSLの手順[3. 公開鍵認証 (GitHub) の設定](<#3.-公開鍵認証-(github)-の設定>) ~ と同様に。
+WSLの手順 3.公開鍵認証 (GitHub) の設定 ~ と同様に。
 
 > **💡 Tip:** 起動するとlazy.nvimが自動でプラグインをインストールします。
 > Masonも自動でLSPサーバをセットアップします。
