@@ -40,7 +40,7 @@
 ## 📋 Prerequisites
 
 - **Windows native (`nvim.exe`) is currently not recommended.** Please use WSL instead.
-- Neovim >= 0.10 is required. Some tools are version-sensitive - packages from `apt` may be outdated. Follow the [Installation section](#🚀-installation) for details.
+- Neovim >= 0.10 is required. Some tools are version-sensitive - packages from `apt` may be outdated. Follow the [Installation section](#-installation) for details.
 
 ## 🚀 Installation
 
@@ -266,7 +266,7 @@ sudo pacman -S neovim
 
 ##### 3. Onwards
 
-Follow the same steps as WSL, starting from [3. Set up SSH key authentication (GitHub)](#3-set-up-ssh-key-authentication-github).
+Follow the same steps as WSL, starting from step 3: Set up SSH key authentication (GitHub).
 
 > **💡 Tip:** On first launch, lazy.nvim will automatically install all plugins.
 > Mason will also set up LSP servers automatically.
