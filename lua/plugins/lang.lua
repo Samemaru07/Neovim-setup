@@ -93,7 +93,7 @@ return {
         config = function()
             vim.g.mkdp_auto_start = 0
             vim.g.mkdp_open_to_the_world = 0
-            vim.g.mmkdp_open_id = "127.0.0.1"
+            vim.g.mkdp_open_ip = "127.0.0.1"
 
             -- OS判別
             local is_wsl = (function()
