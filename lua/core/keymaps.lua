@@ -291,3 +291,27 @@ map("n", "<leader>cq", "csq", { remap = true, desc = "Change Quote to ()" })
 
 -- beacon
 map("n", "<leader>z", "<cmd>Beacon<CR>", opts)
+
+-- emoji
+map("i", "<C-z>", function()
+    local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+    require("telescope").extensions.emoji.emoji({
+        attach_mappings = function(prompt_bufnr, map_fn)
+            local actions = require("telescope.actions")
+            local action_state = require("telescope.actions.state")
+            actions.select_default:replace(function()
+                actions.close(prompt_bufnr)
+                local selection = action_state.get_selected_entry()
+                if selection then
+                    local emoji_char = selection.value.insert_text
+                    vim.api.nvim_buf_set_text(0, row - 1, col, row - 1, col, { emoji_char })
+                    vim.api.nvim_win_set_cursor(0, { row, col + #emoji_char })
+                    vim.schedule(function()
+                        vim.cmd("startinsert!")
+                    end)
+                end
+            end)
+            return true
+        end,
+    })
+end, opts)
