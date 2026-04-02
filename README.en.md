@@ -663,6 +663,7 @@ Created using [this tool](https://lazesoftware.com/en/tool/brailleaagen/).
 
 Anime characters send you random notifications based on your action.
 Characters are from: _Code Geass_, _Fafner in the Azure_, _Rascal Does Not Dream_, _Kantai Collection_, and _Chainsaw Man_.
+Note that the notification messages themselves are written in Japanese.
 
 #### Favorite Messages
 
