@@ -158,7 +158,7 @@ nvim
 
 ```bash
 sudo apt update
-sudo apt install -y git curl build-essential zsh ripgrep fd-find pulseaudio-utils xclip python3 python3-pip shellcheck shfmt clang-format
+sudo apt install -y git curl build-essential zsh ripgrep fd-find pulseaudio-utils xclip python3 python3-pip shellcheck shfmt clang-format wslu
 sudo ln -sf "$(which fdfind)" /usr/local/bin/fd
 ```
 
