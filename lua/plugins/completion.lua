@@ -7,6 +7,7 @@ return {
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-cmdline",
             "uga-rosa/cmp-skkeleton",
+            "allaman/emoji.nvim",
             {
                 "L3MON4D3/LuaSnip",
                 dependencies = { "rafamadriz/friendly-snippets" },
