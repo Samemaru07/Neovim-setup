@@ -11,6 +11,10 @@ require("luasnip.loaders.from_lua").load({
     paths = { vim.fn.stdpath("config") .. "/lua/snippets" },
 })
 
+require("emoji").setup({
+    enable_cmp_integration = true,
+})
+
 luasnip.add_snippets("javascript", {
     luasnip.snippet("clg", {
         luasnip.text_node("console.log("),
@@ -88,6 +92,7 @@ cmp.setup({
             end,
         },
         { name = "skkeleton", keyword_length = 1 },
+        { name = "emoji", keyword_length = 2 },
     }, {
         { name = "buffer" },
         { name = "path" },
