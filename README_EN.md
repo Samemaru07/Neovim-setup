@@ -1,5 +1,7 @@
 # 🌊 Neovim Setup
 
+###### 🇯🇵 [日本語](./README.md) | 🇺🇸 English
+
 <div align="center">
     <h3>A Neovim config for Arch Linux / WSL / macOS, watched over by anime characters.</h3>
 </div>

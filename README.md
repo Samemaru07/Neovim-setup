@@ -1,5 +1,7 @@
 # 🌊 Neovim Setup
 
+###### 🇯🇵 日本語 | 🇺🇸 [English](./README_EN.md)
+
 <div align="center">
     <h3>アニメキャラが見守るNeovim設定</h3>
 </div>
