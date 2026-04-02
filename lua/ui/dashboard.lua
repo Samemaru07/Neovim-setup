@@ -35,6 +35,9 @@ local dashboard_ascii = [[
 ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⣿⣿⣿⣿⡇⠄⠄⠄⠄⠄⠄⠄⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⣰⣿⣿⣿⡄⠄⠄⠄⠄⠄⠄⢻⣿⣿⣿⣿⣿⣿⣷⣹⣿⡿⢣⣾⣿⣿⣿⡟⣱⣿⣿⡿⡱⣋⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
 ]]
 
+local stats = require("lazy").stats()
+local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+
 -- ヘッダー
 dashboard.section.header.val = vim.split(dashboard_ascii, "\n")
 
@@ -44,10 +47,16 @@ dashboard.section.header.opts = {
 }
 
 -- フッター
-dashboard.section.footer.val = {
-    "    『              よーし、頑張ってこー！無理しすぎんなよ？",
-    "     ……ふふ、なんかそうやって頑張ってるの、見てるといいなって思うんだ。』",
-}
+dashboard.section.footer.val = function()
+    local stats = require("lazy").stats()
+    local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+    return {
+        "    『        よーし、頑張ってこー！無理しすぎんなよ？",
+        "      ……ふふ、なんかそうやって頑張ってるの、見てるといいなって思うんだ。』",
+        "",
+        "                    ⚡ Neovim loaded in " .. ms .. "ms",
+    }
+end
 
 dashboard.section.footer.opts = {
     position = "center",
