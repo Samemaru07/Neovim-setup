@@ -106,7 +106,13 @@ return {
 
             if is_wsl then
                 -- WSL環境の設定
-                vim.g.mkdp_browser = "wslview"
+                vim.g.mkdp_browser = ""
+                vim.g.mkdp_browserfunc = "OpenWslBrowser"
+                vim.cmd([[
+                function! OpenWslBrowser(url)
+                    call system('wslview ' . shellescape(a:url))
+                endfunction
+            ]])
             else
                 -- Arch Linuxの設定
                 vim.g.mkdp_browser = ""
