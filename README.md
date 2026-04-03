@@ -598,6 +598,7 @@ WSLの手順 3.公開鍵認証 (GitHub) の設定 ~ と同様に。
 
 | キー         | モード | 動作                          |
 | ------------ | ------ | ----------------------------- |
+| `<C-z>`      | i      | emoji.nvimをTelescopeで検索   |
 | `<leader>g`  | n      | lazygitを起動(フローティング) |
 | `<leader>w`  | n      | 単語を囲む（nvim-surround）   |
 | `<leader>W`  | n      | 行を囲む（nvim-surround）     |
