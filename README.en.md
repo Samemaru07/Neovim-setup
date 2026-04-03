@@ -42,6 +42,26 @@
 - **Windows native (`nvim.exe`) is currently not recommended.** Please use WSL instead.
 - Neovim >= 0.10 is required. Some tools are version-sensitive - packages from `apt` may be outdated. Follow the [Installation section](#-installation) for details.
 
+## 📁 Directory Structure
+
+```
+nvim/
+    ├ init.lua              # Entry point
+    ├ lazy-lock.json        # Plugin version lock file
+    ├ tools/
+    │   ├ .clang-format     # C/C++ formatter (clang-format) config
+    │   └ stylua.toml       # Lua formatter (stylua) config
+    ├ lua/
+    │   ├ core/             # Options, keymaps, and autocommands
+    │   ├ plugins/          # Plugin specs (lazy.nvim)
+    │   ├ lsp/              # LSP config
+    │   ├ cmp/              # Completion config
+    │   ├ ui/               # UI plugins config
+    │   ├ snippets/         # Snippets
+    │   └ data/             # Data files (e.g. notify messages)
+    └ assets/               # Images for README
+```
+
 ## 🚀 Installation
 
 ### Use with dotfiles (Recommended)
