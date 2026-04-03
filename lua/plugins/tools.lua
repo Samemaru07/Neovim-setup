@@ -75,7 +75,7 @@ return {
                         prepend_args = { "--trailing-comma", "none", "--tab-width", "4" },
                     },
                     stylua = {
-                        prepend_args = { "--config-path", vim.fn.stdpath("config") .. "/stylua.toml" },
+                        prepend_args = { "--config-path", vim.fn.stdpath("config") .. "/tools/stylua.toml" },
                     },
                 },
             })
