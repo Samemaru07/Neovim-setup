@@ -594,15 +594,16 @@ Follow the same steps as WSL, starting from step 3: Set up SSH key authenticatio
 <details>
 <summary>Misc</summary>
 
-| Key          | Mode | Action                        |
-| ------------ | ---- | ----------------------------- |
-| `<leader>g`  | n    | Open lazygit (floating)       |
-| `<leader>w`  | n    | Surround word (nvim-surround) |
-| `<leader>W`  | n    | Surround line (nvim-surround) |
-| `<leader>dq` | n    | Delete surrounding quotes     |
-| `<leader>cq` | n    | Change quotes to brackets     |
-| `<leader>z`  | n    | Highlight cursor position     |
-| `<leader>rr` | n    | Reload Neovim config          |
+| Key          | Mode | Action                                   |
+| ------------ | ---- | ---------------------------------------- |
+| `<C-z>`      | i    | Search emojis via Telescope (emoji.nvim) |
+| `<leader>g`  | n    | Open lazygit (floating)                  |
+| `<leader>w`  | n    | Surround word (nvim-surround)            |
+| `<leader>W`  | n    | Surround line (nvim-surround)            |
+| `<leader>dq` | n    | Delete surrounding quotes                |
+| `<leader>cq` | n    | Change quotes to brackets                |
+| `<leader>z`  | n    | Highlight cursor position                |
+| `<leader>rr` | n    | Reload Neovim config                     |
 
 </details>
 
