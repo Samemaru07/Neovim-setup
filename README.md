@@ -42,6 +42,26 @@
 - **Windows native環境 (`nvim.exe`) は現在非推奨**です。WSLの使用を推奨します。
 - Neovim >= 0.10が必要です。また、いくつかのツールはバージョンが重要な為、`apt`のものは古い場合があります。詳しくは[インストールセクション](#-インストール)に従ってください。
 
+## 📁 ディレクトリ構成
+
+```
+nvim/
+    ├ init.lua              # エントリーポイント
+    ├ lazy-lock.json        # プラグインのバージョンロックファイル
+    ├ tools/
+    │   ├ .clang-format     # C/C++フォーマッタ (clang-format) の設定
+    │   └ stylua.toml       # Luaフォーマッタ (stylua) の設定
+    ├ lua/
+    │   ├ core/             # オプション・キーマップ・オートコマンド
+    │   ├ plugins/          # プラグイン設定 (lazy.nvim)
+    │   ├ lsp/              # LSP設定
+    │   ├ cmp/              # 補完設定
+    │   ├ ui/               # UI系プラグイン設定
+    │   ├ snippets/         # スニペット
+    │   └ data/             # 通知メッセージ等のデータ
+    └ assets/               # README用画像
+```
+
 ## 🚀 インストール
 
 ### dotfilesごと使う場合 (推奨)
