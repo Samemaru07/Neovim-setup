@@ -1,6 +1,7 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
+        event = { "BufReadPost", "BufNewFile" },
         build = ":TSUpdate",
         config = function()
             require("nvim-treesitter").setup({
@@ -36,6 +37,7 @@ return {
 
     {
         "nvim-treesitter/nvim-treesitter-context",
+        event = { "BufReadPost", "BufNewFile" },
         dependencies = { "nvim-treesitter/nvim-treesitter" },
         config = function()
             require("treesitter-context").setup({
@@ -51,6 +53,7 @@ return {
 
     {
         "windwp/nvim-autopairs",
+        event = "InsertEnter",
         config = function()
             require("nvim-autopairs").setup({
                 check_ts = true,
@@ -61,6 +64,7 @@ return {
 
     {
         "windwp/nvim-ts-autotag",
+        event = "InsertEnter",
         config = function()
             require("nvim-ts-autotag").setup()
         end,
@@ -68,6 +72,9 @@ return {
 
     {
         "numToStr/Comment.nvim",
+        keys = {
+            { "<leader>/", mode = { "n", "v" } },
+        },
         dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
         config = function()
             vim.g.skip_ts_context_commentstring_module = true
@@ -130,9 +137,10 @@ return {
         },
     },
 
-    { "mattn/emmet-vim" },
+    { "mattn/emmet-vim", ft = { "html", "css", "javascript", "typescript", "javascriptreact", "typescriptreact" } },
     {
         "rainbowhxch/beacon.nvim",
+        event = "VeryLazy",
         config = function()
             require("beacon").setup({
                 enable = true,

@@ -2,12 +2,17 @@ return {
     { "nvim-tree/nvim-web-devicons" },
     {
         "nvim-tree/nvim-tree.lua",
+        cmd = { "NvimTreeToggle", "NvimTreeFocus", "NvimTreeFindFile" },
+        keys = {
+            { "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "Toggle NvimTree" },
+        },
         config = function()
             require("ui.nvim-tree")
         end,
     },
     {
         "akinsho/bufferline.nvim",
+        event = "VeryLazy",
         config = function()
             require("ui.bufferline")
         end,
@@ -20,12 +25,18 @@ return {
     },
     {
         "akinsho/toggleterm.nvim",
+        lazy = false,
         config = function()
             require("ui.toggleterm")
         end,
     },
     {
         "folke/trouble.nvim",
+        cmd = { "Trouble", "TroubleToggle" },
+        keys = {
+            { "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics (Trouble)" },
+            { "<leader>xd", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer Diagnostics (Trouble)" },
+        },
         config = function()
             require("ui.trouble")
         end,
@@ -50,6 +61,7 @@ return {
 
     {
         "goolord/alpha-nvim",
+        event = "VimEnter",
         config = function()
             require("ui.dashboard")
             vim.api.nvim_set_hl(0, "AlphaHeader", { fg = "#AFEEEE" })
@@ -87,7 +99,7 @@ return {
 
     {
         "folke/noice.nvim",
-        lazy = false,
+        event = "VeryLazy",
         dependencies = {
             "MunifTanjim/nui.nvim",
             "rcarriga/nvim-notify",
@@ -172,6 +184,7 @@ return {
 
     {
         "gen740/SmoothCursor.nvim",
+        event = "VeryLazy",
         config = function()
             require("smoothcursor").setup({
                 autostart = true,
@@ -208,12 +221,14 @@ return {
 
     {
         "folke/todo-comments.nvim",
+        event = { "BufReadPost", "BufNewFile" },
         dependencies = { "nvim-lua/plenary.nvim" },
         opts = {},
     },
 
     {
         "karb94/neoscroll.nvim",
+        event = "VeryLazy",
         opts = {
             animation_time = 300,
             easing_function = "quadratic",
@@ -222,6 +237,7 @@ return {
 
     {
         "Bekaboo/dropbar.nvim",
+        event = { "BufReadPost", "BufNewFile" },
         url = "git@github.com:Bekaboo/dropbar.nvim.git",
         dependencies = {
             {
