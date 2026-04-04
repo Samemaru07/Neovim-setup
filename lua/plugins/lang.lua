@@ -1,7 +1,7 @@
 return {
     {
         "lervag/vimtex",
-        lazy = false,
+        ft = { "tex", "latex", "bib" },
         init = function()
             vim.g.vimtex_compiler_progname = "nvr"
             vim.g.vimtex_view_method = "general"
@@ -24,38 +24,11 @@ return {
         end,
     },
 
-    {
-        "nvim-flutter/flutter-tools.nvim",
-        lazy = false,
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "stevearc/dressing.nvim",
-        },
-        config = function()
-            require("flutter-tools").setup({
-                flutter_path = "/home/samemaru/development/flutter/bin/flutter",
-                widget_guides = { enabled = true },
-                decorations = { statusline = { device = true } },
-                dev_log = { enabled = true, open_cmd = "tabnew" },
-                outline = { open_cmd = "30vsplit" },
-            })
-
-            vim.api.nvim_create_autocmd("VimEnter", {
-                pattern = "*",
-                callback = function()
-                    local cwd = vim.fn.getcwd()
-                    if vim.fn.isdirectory(cwd .. "/lib") == 1 then
-                        require("flutter-tools").setup_project()
-                    end
-                end,
-            })
-        end,
-    },
-
-    { "vhda/verilog_systemverilog.vim" },
+    { "vhda/verilog_systemverilog.vim", ft = { "verilog", "systemverilog" } },
 
     {
         "tpope/vim-dadbod",
+        cmd = { "DB" },
         dependencies = { "kristijanhusak/vim-dadbod-ui" },
         config = function()
             vim.g.db_ui_save_location = "~/.config/nvim/db_ui"
@@ -65,6 +38,7 @@ return {
 
     {
         "kristijanhusak/vim-dadbod-completion",
+        ft = { "sql", "mysql", "psql" },
         dependencies = { "tpope/vim-dadbod" },
         config = function()
             vim.api.nvim_create_autocmd("FileType", {
@@ -143,5 +117,5 @@ return {
         end,
     },
 
-    { "sophacles/vim-processing" },
+    { "sophacles/vim-processing", ft = "processing" },
 }
