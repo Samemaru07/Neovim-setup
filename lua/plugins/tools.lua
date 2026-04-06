@@ -68,6 +68,8 @@ return {
                     qml = { "qmlformat" },
                     processing = { "clang_format" },
                     markdown = { "prettier", "markdownlink" },
+                    css = { "prettier" },
+                    scss = { "prettier" },
                 },
                 formatters = {
                     ["verible-verilog-format"] = {
