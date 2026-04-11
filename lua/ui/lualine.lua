@@ -53,12 +53,23 @@ require("lualine").setup({
         },
         lualine_b = {
             {
-                "filename",
-                path = 1,
+                "mode",
                 cond = function()
-                    return vim.bo.buftype ~= "terminal" and vim.bo.filetype ~= "alpha" and vim.bo.filetype ~= "NvimTree"
+                    return vim.o.buftype ~= "terminal" and vim.bo.filetype ~= "alpha" and vim.bo.filetype ~= "NvimTree"
                 end,
-                color = { fg = "#000000", bg = "#708090" },
+                color = function()
+                    local mode_colors = {
+                        n = { fg = "#000000", bg = "#89b4fa" },
+                        i = { fg = "#000000", bg = "#a6e3a1" },
+                        v = { fg = "#000000", bg = "#cba6f7" },
+                        V = { fg = "#000000", bg = "#cba6f7" },
+                        ["\22"] = { fg = "#000000", bg = "#cba6f7" },
+                        R = { fg = "#000000", bg = "#f38ba8" },
+                        c = { fg = "#000000", bg = "#f9e2af" },
+                    }
+                    local m = vim.api.nvim_get_mode().mode
+                    return mode_colors[m] or { fg = "#000000", bg = "#708090" }
+                end,
                 separator = { right = "" },
             },
             {
