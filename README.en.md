@@ -524,17 +524,23 @@ Follow the same steps as WSL, starting from step 3: Set up SSH key authenticatio
 <details>
 <summary>LSP</summary>
 
-| Key          | Mode | Action                    |
-| ------------ | ---- | ------------------------- |
-| `K`          | n    | Show hover information    |
-| `gd`         | n    | Jump to definition        |
-| `gr`         | n    | Show references           |
-| `gi`         | n    | Jump to implementation    |
-| `<leader>rn` | n    | Rename symbol             |
-| `<leader>ca` | n, v | Code action               |
-| `[d`         | n    | Go to previous diagnostic |
-| `]d`         | n    | Go to next diagnostic     |
-| `<leader>dl` | n    | Show diagnostic details   |
+| Key          | Mode | Action                                             |
+| ------------ | ---- | -------------------------------------------------- |
+| `K`          | n    | Show hover information                             |
+| `gd`         | n    | Jump to definition                                 |
+| `gr`         | n    | Show references                                    |
+| `gi`         | n    | Jump to implementation                             |
+| `<leader>rn` | n    | Rename symbol                                      |
+| `<leader>ca` | n, v | Code action                                        |
+| `[d`         | n    | Go to previous diagnostic                          |
+| `]d`         | n    | Go to next diagnostic                              |
+| `<leader>dl` | n    | Show diagnostic details                            |
+| `<leader>m`  | n    | Toggle diagnostics list (Trouble)                  |
+| `<leader>xx` | n    | Toggle workspace diagnostics list (Trouble)        |
+| `<leader>xd` | n    | Toggle current-buffer diagnostics list (Trouble)   |
+
+> [!NOTE]
+> Because `trouble.nvim` is lazy-loaded, `<leader>m` becomes available only after loading Trouble via `<leader>xx` / `<leader>xd` (or `:Trouble`).
 
 </details>
 
