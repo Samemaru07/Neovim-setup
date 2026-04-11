@@ -7,11 +7,11 @@
 --     highlight NonText guibg=NONE
 --     highlight EndOfBuffer guibg=NONE
 --     highlight SignColumn guibg=NONE
---     highlight NvimTreeNormal guibg=NONE
---     highlight NvimTreeVertSplit guibg=NONE
---     highlight NvimTreeEndOfBuffer guibg=NONE
---     highlight NvimTreeStatusLine guibg=NONE
---     highlight NvimTreeStatusLineNC guibg=NONE
+--     highlight NeoTreeNormal guibg=NONE
+--     highlight NeoTreeNormalNC guibg=NONE
+--     highlight NeoTreeEndOfBuffer guibg=NONE
+--     highlight NeoTreeWinSeparator guibg=NONE
+--     highlight NeoTreeTabInactive guibg=NONE
 --     highlight NormalFloat guibg=#1E1E1E
 --     highlight WhichKeyFloat guibg=NONE
 --   ]])
@@ -115,10 +115,10 @@ vim.api.nvim_create_autocmd("ColorScheme", {
         vim.api.nvim_set_hl(0, "LineNr", { fg = "#C8B88A", force = true })
         vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#E6C86E", bold = true, force = true })
 
-        -- NvimTree フォルダ色
-        vim.api.nvim_set_hl(0, "NvimTreeFolderIcon", { fg = "#abb5ff" })
-        vim.api.nvim_set_hl(0, "NvimTreeFolderName", { fg = "#abb5ff" })
-        vim.api.nvim_set_hl(0, "NvimTreeOpenedFolderName", { fg = "#abb5ff", bold = true })
+        -- neo-tree フォルダ色
+        vim.api.nvim_set_hl(0, "NeoTreeDirectoryIcon", { fg = "#abb5ff" })
+        vim.api.nvim_set_hl(0, "NeoTreeDirectoryName", { fg = "#abb5ff" })
+        vim.api.nvim_set_hl(0, "NeoTreeRootName", { fg = "#abb5ff", bold = true })
 
         -- Visualモードの選択範囲を見やすくする
         vim.api.nvim_set_hl(0, "Visual", { bg = "#82827F", bold = true })
