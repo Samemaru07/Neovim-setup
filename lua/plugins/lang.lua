@@ -3,8 +3,9 @@ return {
         "lervag/vimtex",
         ft = { "tex", "latex", "bib" },
         init = function()
-            vim.g.vimtex_compiler_progname = "nvr"
-            vim.g.vimtex_view_method = "zathura"
+            vim.fn.delete("/tmp/nvimsocket")
+            vim.fn.serverstart("/tmp/nvimsocket")
+            vim.g.vimtex_compiler_progname = "/home/samemaru/.local/bin/nvr"
             vim.g.vimtex_compiler_method = "latexmk"
             vim.g.vimtex_compiler_latexmk_engines = { _ = "-lualatex" }
             vim.g.vimtex_compiler_latexmk = {
@@ -14,10 +15,12 @@ return {
                     "-interaction=nonstopmode",
                     "-file-line-error",
                     "-halt-on-error",
-                    "-e '$latexmk_use_gzip_synctex = 0'",
                     "-shell-escape",
                 },
             }
+            vim.g.vimtex_view_general_viewer = "zathura"
+            vim.g.vimtex_view_general_options =
+                '-x "/home/samemaru/.local/bin/nvr --servername /tmp/nvimsocket --remote-silent +%{line} %{input}" --synctex-forward @line:0:@tex @pdf'
         end,
     },
 
