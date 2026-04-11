@@ -4,15 +4,12 @@ return {
         ft = { "tex", "latex", "bib" },
         init = function()
             vim.g.vimtex_compiler_progname = "nvr"
-            vim.g.vimtex_view_method = "general"
-            vim.g.vimtex_view_general_viewer = "/home/samemaru/dotfiles/sioyek-wsl.sh"
-            vim.g.vimtex_view_general_options = "--forward-search-file @tex --forward-search-line @line @pdf"
+            vim.g.vimtex_view_method = "zathura"
             vim.g.vimtex_compiler_method = "latexmk"
+            vim.g.vimtex_compiler_latexmk_engines = { _ = "-lualatex" }
             vim.g.vimtex_compiler_latexmk = {
                 continuous = 1,
                 options = {
-                    "-pdf",
-                    "-lualatex",
                     "-synctex=1",
                     "-interaction=nonstopmode",
                     "-file-line-error",
