@@ -22,7 +22,7 @@ require("lualine").setup({
             {
                 "noice",
                 cond = function()
-                    return vim.bo.buftype ~= "terminal" and vim.bo.filetype ~= "alpha" and vim.bo.filetype ~= "NvimTree"
+                    return vim.bo.buftype ~= "terminal" and vim.bo.filetype ~= "alpha" and vim.bo.filetype ~= "neo-tree"
                 end,
             },
             {
@@ -56,7 +56,7 @@ require("lualine").setup({
                 "filename",
                 path = 1,
                 cond = function()
-                    return vim.bo.buftype ~= "terminal" and vim.bo.filetype ~= "alpha" and vim.bo.filetype ~= "NvimTree"
+                    return vim.bo.buftype ~= "terminal" and vim.bo.filetype ~= "alpha" and vim.bo.filetype ~= "neo-tree"
                 end,
                 color = { fg = "#000000", bg = "#708090" },
                 separator = { right = "" },
@@ -64,7 +64,7 @@ require("lualine").setup({
             {
                 "branch",
                 cond = function()
-                    return vim.bo.buftype ~= "terminal" and vim.bo.filetype ~= "alpha" and vim.bo.filetype ~= "NvimTree"
+                    return vim.bo.buftype ~= "terminal" and vim.bo.filetype ~= "alpha" and vim.bo.filetype ~= "neo-tree"
                 end,
                 color = { fg = "#000000", bg = "#778899" },
                 separator = { right = "" },
@@ -77,7 +77,7 @@ require("lualine").setup({
                         return ""
                     end
                     local ft = vim.bo.filetype
-                    if ft == "NvimTree" then
+                    if ft == "neo-tree" then
                         return "" -- ここを空文字に変更
                     end
                     if ft == "alpha" then
@@ -104,7 +104,7 @@ require("lualine").setup({
             {
                 "progress",
                 cond = function()
-                    return vim.bo.buftype ~= "terminal" and vim.bo.filetype ~= "alpha" and vim.bo.filetype ~= "NvimTree"
+                    return vim.bo.buftype ~= "terminal" and vim.bo.filetype ~= "alpha" and vim.bo.filetype ~= "neo-tree"
                 end,
                 color = { fg = "#000000", bg = "#778899" },
             },
@@ -113,7 +113,7 @@ require("lualine").setup({
             {
                 "location",
                 cond = function()
-                    return vim.bo.buftype == "" and vim.bo.filetype ~= "alpha" and vim.bo.filetype ~= "NvimTree"
+                    return vim.bo.buftype == "" and vim.bo.filetype ~= "alpha" and vim.bo.filetype ~= "neo-tree"
                 end,
                 color = { fg = "#000000", bg = "#778899" },
             },
@@ -129,7 +129,7 @@ require("lualine").setup({
             {
                 "filetype",
                 cond = function()
-                    return vim.bo.buftype == "" and vim.bo.filetype ~= "alpha" and vim.bo.filetype ~= "NvimTree"
+                    return vim.bo.buftype == "" and vim.bo.filetype ~= "alpha" and vim.bo.filetype ~= "neo-tree"
                 end,
                 colored = true,
                 padding = { left = 1, right = 1 },
@@ -139,7 +139,7 @@ require("lualine").setup({
             {
                 "encoding",
                 cond = function()
-                    return vim.bo.buftype == "" and vim.bo.filetype ~= "alpha" and vim.bo.filetype ~= "NvimTree"
+                    return vim.bo.buftype == "" and vim.bo.filetype ~= "alpha" and vim.bo.filetype ~= "neo-tree"
                 end,
                 padding = { left = 1, right = 1 },
                 color = { fg = "#000000", bg = "#708090" },
@@ -153,7 +153,7 @@ require("lualine").setup({
         lualine_c = {
             {
                 function()
-                    -- NvimTreeの場合も空文字を返すように変更
+                    -- neo-tree の場合も空文字を返す
                     return ""
                 end,
             },

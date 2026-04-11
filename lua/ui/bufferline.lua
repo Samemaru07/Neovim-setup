@@ -15,7 +15,7 @@ bufferline.setup({
         color_icons = true,
         offsets = {
             {
-                filetype = "NvimTree",
+                filetype = "neo-tree",
                 text = "エクスプローラ",
                 text_align = "center",
                 separator = true,
