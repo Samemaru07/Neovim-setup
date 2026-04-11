@@ -33,5 +33,13 @@ bufferline.setup({
         },
         tab_size = 20,
         padding = 1,
+        custom_filter = function(buf_num)
+            local buf_name = vim.fn.bufname(buf_num)
+            local buf_ft = vim.api.nvim_get_option_value("filetype", { buf = buf_num })
+            if buf_name == "" and buf_ft == "" then
+                return false
+            end
+            return true
+        end,
     },
 })
