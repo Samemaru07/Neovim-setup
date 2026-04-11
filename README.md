@@ -22,6 +22,9 @@
 > [!NOTE]
 > [dotfiles](https://github.com/Samemaru07/dotfiles)のサブモジュールとして管理されています。
 
+> [!NOTE]
+> 掲載している画像は、実際の表示と若干異なる場合があります。
+
 ![dashboard](assets/nvim-dashboard.png)
 
 ![demo-lsp](assets/nvim-lsp.gif)
@@ -303,7 +306,7 @@ WSLの手順 3.公開鍵認証 (GitHub) の設定 ~ と同様に。
 | プラグイン名                                                        | 説明                     |
 | ------------------------------------------------------------------- | ------------------------ |
 | [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) | アイコン表示             |
-| [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua)         | ファイルエクスプローラ   |
+| [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)     | ファイルエクスプローラ   |
 | [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)       | バッファライン表示       |
 | [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)        | ステータスライン         |
 | [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)       | ターミナルトグル         |
@@ -744,7 +747,7 @@ Neovimを起動するたびに、「ひぐらしのなく頃に」より、**園
                         return ""
                     end
                     local ft = vim.bo.filetype
-                    if ft == "NvimTree" then
+                    if ft == "neo-tree" then
                         return ""
                     end
                     if ft == "alpha" then

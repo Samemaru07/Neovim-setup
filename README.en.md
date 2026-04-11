@@ -22,6 +22,9 @@
 > [!NOTE]
 > Managed as a submodule of [dotfiles](https://github.com/Samemaru07/dotfiles).
 
+> [!NOTE]
+> Screenshots may slightly differ from the current appearance.
+
 ![dashboard](assets/nvim-dashboard.png)
 
 ![demo-lsp](assets/nvim-lsp.gif)
@@ -301,7 +304,7 @@ Follow the same steps as WSL, starting from step 3: Set up SSH key authenticatio
 | Plugin                                                              | Description                   |
 | ------------------------------------------------------------------- | ----------------------------- |
 | [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) | File icons                    |
-| [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua)         | File explorer                 |
+| [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)     | File explorer                 |
 | [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)       | Buffer tab line               |
 | [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)        | Status line                   |
 | [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)       | Terminal toggle               |
@@ -735,7 +738,7 @@ A Gundam-inspired message is displayed in the status line based on the file's sa
                         return ""
                     end
                     local ft = vim.bo.filetype
-                    if ft == "NvimTree" then
+                    if ft == "neo-tree" then
                         return ""
                     end
                     if ft == "alpha" then
