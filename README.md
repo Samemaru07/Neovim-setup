@@ -526,17 +526,23 @@ WSLの手順 3.公開鍵認証 (GitHub) の設定 ~ と同様に。
 <details>
 <summary>LSP</summary>
 
-| キー         | モード | 動作             |
-| ------------ | ------ | ---------------- |
-| `K`          | n      | ホバー情報表示   |
-| `gd`         | n      | 定義へジャンプ   |
-| `gr`         | n      | 参照一覧表示     |
-| `gi`         | n      | 実装へジャンプ   |
-| `<leader>rn` | n      | シンボルリネーム |
-| `<leader>ca` | n, v   | コードアクション |
-| `[d`         | n      | 前の診断へ移動   |
-| `]d`         | n      | 次の診断へ移動   |
-| `<leader>dl` | n      | 診断詳細表示     |
+| キー         | モード | 動作                                   |
+| ------------ | ------ | -------------------------------------- |
+| `K`          | n      | ホバー情報表示                         |
+| `gd`         | n      | 定義へジャンプ                         |
+| `gr`         | n      | 参照一覧表示                           |
+| `gi`         | n      | 実装へジャンプ                         |
+| `<leader>rn` | n      | シンボルリネーム                       |
+| `<leader>ca` | n, v   | コードアクション                       |
+| `[d`         | n      | 前の診断へ移動                         |
+| `]d`         | n      | 次の診断へ移動                         |
+| `<leader>dl` | n      | 診断詳細表示                           |
+| `<leader>m`  | n      | Diagnostics一覧の表示/非表示（Trouble） |
+| `<leader>xx` | n      | 全体Diagnostics一覧の表示/非表示（Trouble） |
+| `<leader>xd` | n      | 現在バッファDiagnostics一覧の表示/非表示（Trouble） |
+
+> [!NOTE]
+> `trouble.nvim` は遅延ロードのため、`<leader>m` は `<leader>xx` / `<leader>xd`（または `:Trouble`）でプラグインが読み込まれた後に有効になります。
 
 </details>
 
