@@ -4,9 +4,10 @@ return {
         event = { "BufReadPost", "BufNewFile" },
         build = ":TSUpdate",
         config = function()
-            require("nvim-treesitter").setup({
+            require("nvim-treesitter.configs").setup({
                 highlight = { enable = true },
                 indent = { enable = true },
+                auto_install = true,
                 ensure_installed = {
                     "html",
                     "javascript",
@@ -64,9 +65,20 @@ return {
 
     {
         "windwp/nvim-ts-autotag",
-        event = "InsertEnter",
+        event = { "BufReadPre", "BufNewFile" },
+        dependencies = { "nvim-treesitter/nvim-treesitter" },
         config = function()
-            require("nvim-ts-autotag").setup()
+            require("nvim-ts-autotag").setup({
+                aliases = {
+                    markdown = "html",
+                },
+                per_filetype = {
+                    markdown = {
+                        enable_close = true,
+                        enable_rename = true,
+                    },
+                },
+            })
         end,
     },
 
