@@ -123,7 +123,7 @@ return {
             "",
             "\\titleformat{\\section}",
             "  {\\fontsize{14pt}{16pt}\\selectfont\\bfseries}",
-            "  {\\thesection\\quad}",
+            "  {\\thesection.\\quad}",
             "  {0pt}{}",
             "\\titlespacing*{\\section}{0pt}{15pt}{10pt}",
             "",
