@@ -10,6 +10,7 @@ return {
             vim.g.vimtex_compiler_latexmk_engines = { _ = "-lualatex" }
             vim.g.vimtex_compiler_latexmk = {
                 continuous = 1,
+                out_dir = ".build",
                 options = {
                     "-synctex=1",
                     "-interaction=nonstopmode",

@@ -79,6 +79,7 @@ return {
                     latexindent = {
                         command = "latexindent",
                         timeout_ms = 10000,
+                        prepend_args = { "-logfile", "/dev/null" },
                     },
                     prettier = {
                         prepend_args = { "--trailing-comma", "none", "--tab-width", "4" },
@@ -106,5 +107,4 @@ return {
             require("gitsigns").setup()
         end,
     },
-
 }
