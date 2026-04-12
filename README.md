@@ -51,8 +51,10 @@
 nvim/
     ├ init.lua              # エントリーポイント
     ├ lazy-lock.json        # プラグインのバージョンロックファイル
+    ├ setup.sh              # セットアップスクリプト (シンボリックリンク・TeX環境構築)
     ├ tools/
     │   ├ .clang-format     # C/C++フォーマッタ (clang-format) の設定
+    │   ├ .latexmkrc        # latexmkの設定
     │   └ stylua.toml       # Luaフォーマッタ (stylua) の設定
     ├ lua/
     │   ├ core/             # オプション・キーマップ・オートコマンド
@@ -156,7 +158,15 @@ cat ~/.ssh/id_ed25519.pub
 git clone https://github.com/Samemaru07/Neovim-setup.git ~/.config/nvim
 ```
 
-##### 8. Neovimを起動
+##### 8. セットアップスクリプトの実行
+
+```bash
+bash ~/.config/nvim/setup.sh
+```
+
+> **⚠️ Warning:** macOSではzathuraの公式パッケージが存在しない為、[公式サイト](https://pwmt.org/projects/zathura/)を参照して手動インストールしてください。LaTeXを使用しない場合は不要です。
+
+##### 9. Neovimを起動
 
 ```bash
 nvim
@@ -262,7 +272,13 @@ cat ~/.ssh/id_ed25519.pub
 git clone https://github.com/Samemaru07/Neovim-setup.git ~/.config/nvim
 ```
 
-##### 5. Neovimを起動
+##### 5. セットアップスクリプトの実行
+
+```bash
+bash ~/.config/nvim/setup.sh
+```
+
+##### 6. Neovimを起動
 
 ```bash
 nvim
@@ -461,6 +477,7 @@ WSLの手順 3.公開鍵認証 (GitHub) の設定 ~ と同様に。
 | latexmk       | LaTeX自動ビルドツール |
 | lualatex      | LaTeXエンジン         |
 | neovim-remote | vimtex用リモート操作  |
+| zathura       | PDFビューア           |
 
 </details>
 
@@ -526,19 +543,19 @@ WSLの手順 3.公開鍵認証 (GitHub) の設定 ~ と同様に。
 <details>
 <summary>LSP</summary>
 
-| キー         | モード | 動作                                   |
-| ------------ | ------ | -------------------------------------- |
-| `K`          | n      | ホバー情報表示                         |
-| `gd`         | n      | 定義へジャンプ                         |
-| `gr`         | n      | 参照一覧表示                           |
-| `gi`         | n      | 実装へジャンプ                         |
-| `<leader>rn` | n      | シンボルリネーム                       |
-| `<leader>ca` | n, v   | コードアクション                       |
-| `[d`         | n      | 前の診断へ移動                         |
-| `]d`         | n      | 次の診断へ移動                         |
-| `<leader>dl` | n      | 診断詳細表示                           |
-| `<leader>m`  | n      | Diagnostics一覧の表示/非表示（Trouble） |
-| `<leader>xx` | n      | 全体Diagnostics一覧の表示/非表示（Trouble） |
+| キー         | モード | 動作                                                |
+| ------------ | ------ | --------------------------------------------------- |
+| `K`          | n      | ホバー情報表示                                      |
+| `gd`         | n      | 定義へジャンプ                                      |
+| `gr`         | n      | 参照一覧表示                                        |
+| `gi`         | n      | 実装へジャンプ                                      |
+| `<leader>rn` | n      | シンボルリネーム                                    |
+| `<leader>ca` | n, v   | コードアクション                                    |
+| `[d`         | n      | 前の診断へ移動                                      |
+| `]d`         | n      | 次の診断へ移動                                      |
+| `<leader>dl` | n      | 診断詳細表示                                        |
+| `<leader>m`  | n      | Diagnostics一覧の表示/非表示（Trouble）             |
+| `<leader>xx` | n      | 全体Diagnostics一覧の表示/非表示（Trouble）         |
 | `<leader>xd` | n      | 現在バッファDiagnostics一覧の表示/非表示（Trouble） |
 
 > [!NOTE]
@@ -608,6 +625,24 @@ WSLの手順 3.公開鍵認証 (GitHub) の設定 ~ と同様に。
 | `<C-g>` | SKK    | SKK終了          |
 | `q`     | SKK    | カタカナ変換     |
 | `Q`     | SKK    | 半角カタカナ変換 |
+
+</details>
+
+<details>
+<summary>LaTeX (vimtex)</summary>
+
+| キー         | モード | 動作                                   |
+| ------------ | ------ | -------------------------------------- |
+| `<leader>ll` | n      | コンパイル開始/停止（continuous mode） |
+| `<leader>lv` | n      | PDFビューワーを開く（順方向検索）      |
+| `<leader>le` | n      | コンパイルエラー一覧を表示             |
+| `<leader>lc` | n      | 中間ファイルを削除                     |
+| `<leader>lt` | n      | 目次を表示                             |
+| `<leader>lk` | n      | コンパイルを停止                       |
+
+> **📌 Note:** コンパイルが開始されていないとき、またはコンパイルエラー時は、`<leader>s`でコンパイルを(リ)スタートします。
+
+> **📌 Note:** zathuraでPDFを開いた状態で`Ctrl+Click`すると、クリックした箇所に対応する行へ逆サーチします。
 
 </details>
 

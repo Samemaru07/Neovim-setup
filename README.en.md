@@ -51,8 +51,10 @@
 nvim/
     ├ init.lua              # Entry point
     ├ lazy-lock.json        # Plugin version lock file
+    ├ setup.sh              # Setup script (symlinks & TeX environment)
     ├ tools/
     │   ├ .clang-format     # C/C++ formatter (clang-format) config
+    │   ├ .latexmkrc        # latexmk config
     │   └ stylua.toml       # Lua formatter (stylua) config
     ├ lua/
     │   ├ core/             # Options, keymaps, and autocommands
@@ -71,6 +73,8 @@ nvim/
 
 Clone [dotfiles](https://github.com/Samemaru07/dotfiles) with `--recurse-submodules`.
 See the dotfiles [README](https://github.com/Samemaru07/dotfiles) for details.
+
+### Use with this repository only
 
 <details>
 <summary>macOS</summary>
@@ -154,7 +158,15 @@ cat ~/.ssh/id_ed25519.pub
 git clone https://github.com/Samemaru07/Neovim-setup.git ~/.config/nvim
 ```
 
-##### 8. Launch Neovim
+##### 8. Run the setup script
+
+```bash
+bash ~/.config/nvim/setup.sh
+```
+
+> **⚠️ Warning:** On macOS, there is no official package for `zathura`. Please refer to the [official site](https://pwmt.org/projects/zathura/) to install it manually. This step is not required if you don't use LaTeX.
+
+##### 9. Launch Neovim
 
 ```bash
 nvim
@@ -260,7 +272,13 @@ cat ~/.ssh/id_ed25519.pub
 git clone https://github.com/Samemaru07/Neovim-setup.git ~/.config/nvim
 ```
 
-##### 5. Launch Neovim
+##### 5. Run the setup script
+
+```bash
+bash ~/.config/nvim/setup.sh
+```
+
+##### 6. Launch Neovim
 
 ```bash
 nvim
@@ -459,6 +477,7 @@ Follow the same steps as WSL, starting from step 3: Set up SSH key authenticatio
 | latexmk       | LaTeX auto-build tool     |
 | lualatex      | LaTeX engine              |
 | neovim-remote | Remote control for vimtex |
+| zathura       | PDF viewer                |
 
 </details>
 
@@ -524,20 +543,20 @@ Follow the same steps as WSL, starting from step 3: Set up SSH key authenticatio
 <details>
 <summary>LSP</summary>
 
-| Key          | Mode | Action                                             |
-| ------------ | ---- | -------------------------------------------------- |
-| `K`          | n    | Show hover information                             |
-| `gd`         | n    | Jump to definition                                 |
-| `gr`         | n    | Show references                                    |
-| `gi`         | n    | Jump to implementation                             |
-| `<leader>rn` | n    | Rename symbol                                      |
-| `<leader>ca` | n, v | Code action                                        |
-| `[d`         | n    | Go to previous diagnostic                          |
-| `]d`         | n    | Go to next diagnostic                              |
-| `<leader>dl` | n    | Show diagnostic details                            |
-| `<leader>m`  | n    | Toggle diagnostics list (Trouble)                  |
-| `<leader>xx` | n    | Toggle workspace diagnostics list (Trouble)        |
-| `<leader>xd` | n    | Toggle current-buffer diagnostics list (Trouble)   |
+| Key          | Mode | Action                                           |
+| ------------ | ---- | ------------------------------------------------ |
+| `K`          | n    | Show hover information                           |
+| `gd`         | n    | Jump to definition                               |
+| `gr`         | n    | Show references                                  |
+| `gi`         | n    | Jump to implementation                           |
+| `<leader>rn` | n    | Rename symbol                                    |
+| `<leader>ca` | n, v | Code action                                      |
+| `[d`         | n    | Go to previous diagnostic                        |
+| `]d`         | n    | Go to next diagnostic                            |
+| `<leader>dl` | n    | Show diagnostic details                          |
+| `<leader>m`  | n    | Toggle diagnostics list (Trouble)                |
+| `<leader>xx` | n    | Toggle workspace diagnostics list (Trouble)      |
+| `<leader>xd` | n    | Toggle current-buffer diagnostics list (Trouble) |
 
 > [!NOTE]
 > Because `trouble.nvim` is lazy-loaded, `<leader>m` becomes available only after loading Trouble via `<leader>xx` / `<leader>xd` (or `:Trouble`).
@@ -606,6 +625,24 @@ Follow the same steps as WSL, starting from step 3: Set up SSH key authenticatio
 | `<C-g>` | SKK  | Exit SKK                       |
 | `q`     | SKK  | Convert to katakana            |
 | `Q`     | SKK  | Convert to half-width katakana |
+
+</details>
+
+<details>
+<summary>LaTeX (vimtex)</summary>
+
+| Key          | Mode | Action                                     |
+| ------------ | ---- | ------------------------------------------ |
+| `<leader>ll` | n    | Start / stop compilation (continuous mode) |
+| `<leader>lv` | n    | Open PDF viewer (forward search)           |
+| `<leader>le` | n    | Show compile error list                    |
+| `<leader>lc` | n    | Clean auxiliary files                      |
+| `<leader>lt` | n    | Show table of contents                     |
+| `<leader>lk` | n    | Stop compilation                           |
+
+> **📌 Note:** When compilation has not started or has failed, use `<leader>s` to (re)start it.
+
+> **📌 Note:** While a PDF is open in zathura, `Ctrl+Click` performs an inverse search — jumping to the corresponding line in Neovim.
 
 </details>
 
