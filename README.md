@@ -19,14 +19,17 @@
 
 </div>
 
-> [!NOTE]
-> [dotfiles](https://github.com/Samemaru07/dotfiles)のサブモジュールとして管理されています。
-
 ![dashboard](assets/nvim-dashboard.png)
 
 ![demo-lsp](assets/nvim-lsp.gif)
 
 ![lualine-and-notify](assets/nvim_lualine-notify.JPEG)
+
+> [!NOTE]
+> [dotfiles](https://github.com/Samemaru07/dotfiles)のサブモジュールとして管理されています。
+
+> [!NOTE]
+> 掲載している画像は、実際の表示と若干異なる場合があります。
 
 ## ⭐ 特徴
 
@@ -41,6 +44,28 @@
 
 - **Windows native環境 (`nvim.exe`) は現在非推奨**です。WSLの使用を推奨します。
 - Neovim >= 0.10が必要です。また、いくつかのツールはバージョンが重要な為、`apt`のものは古い場合があります。詳しくは[インストールセクション](#-インストール)に従ってください。
+
+## 📁 ディレクトリ構成
+
+```
+nvim/
+    ├ init.lua              # エントリーポイント
+    ├ lazy-lock.json        # プラグインのバージョンロックファイル
+    ├ setup.sh              # セットアップスクリプト (シンボリックリンク・TeX環境構築)
+    ├ tools/
+    │   ├ .clang-format     # C/C++フォーマッタ (clang-format) の設定
+    │   ├ .latexmkrc        # latexmkの設定
+    │   └ stylua.toml       # Luaフォーマッタ (stylua) の設定
+    ├ lua/
+    │   ├ core/             # オプション・キーマップ・オートコマンド
+    │   ├ plugins/          # プラグイン設定 (lazy.nvim)
+    │   ├ lsp/              # LSP設定
+    │   ├ cmp/              # 補完設定
+    │   ├ ui/               # UI系プラグイン設定
+    │   ├ snippets/         # スニペット
+    │   └ data/             # 通知メッセージ等のデータ
+    └ assets/               # README用画像
+```
 
 ## 🚀 インストール
 
@@ -62,34 +87,7 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-##### 2. 必要なツールのインストール
-
-```bash
-brew install neovim git curl ripgrep fd node go rust shellcheck shfmt llvm
-```
-
-> **📌 Note:** `llvm`をインストールすることで`clang-format`が使えるようになります。
-
-##### 3. Python (通常macOSに付属)
-
-```bash
-python3 --version
-pip3 --version
-```
-
-もしPythonがない場合：
-
-```bash
-brew install python3
-```
-
-##### 4. オプション: Denoのインストール
-
-```bash
-brew install deno
-```
-
-##### 5. Nerd Fontのインストール (推奨)
+##### 2. Nerd Fontのインストール (推奨)
 
 アイコン表示のため、Nerd Fontをインストールすることを推奨します。
 
@@ -102,7 +100,7 @@ brew install --cask font-jetbrains-mono-nerd-font
 
 インストール後、ターミナルアプリの設定でフォントを変更してください。
 
-##### 6. 公開鍵認証 (GitHub) の設定
+##### 3. 公開鍵認証 (GitHub) の設定
 
 ```bash
 ssh-keygen -t ed25519 -C "<your@mail>"
@@ -127,13 +125,21 @@ cat ~/.ssh/id_ed25519.pub
     ssh -T git@github.com
 ```
 
-##### 7. クローン
+##### 4. クローン
 
 ```bash
 git clone https://github.com/Samemaru07/Neovim-setup.git ~/.config/nvim
 ```
 
-##### 8. Neovimを起動
+##### 5. セットアップスクリプトの実行
+
+```bash
+bash ~/.config/nvim/setup.sh
+```
+
+> **⚠️ Warning:** macOSではzathuraの公式パッケージが存在しない為、[公式サイト](https://pwmt.org/projects/zathura/)を参照して手動インストールしてください。LaTeXを使用しない場合は不要です。
+
+##### 6. Neovimを起動
 
 ```bash
 nvim
@@ -154,61 +160,7 @@ nvim
 1. [win32yank.exe](https://github.com/equalsraf/win32yank/releases)を取得。
 2. `C:\tools\`に解凍・配置。
 
-##### 1. 基本ツールのインストール
-
-```bash
-sudo apt update
-sudo apt install -y git curl build-essential zsh ripgrep fd-find pulseaudio-utils xclip python3 python3-pip shellcheck shfmt clang-format wslu
-sudo ln -sf "$(which fdfind)" /usr/local/bin/fd
-```
-
-##### 2. バージョンが重要なツールのインストール
-
-###### Neovim
-
-aptのものは古い為、公式バイナリを導入します。
-
-```bash
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
-sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
-sudo ln -sf /opt/nvim-linux-x86_64/bin/nvim /usr/local/bin/nvim
-```
-
-###### Node.js
-
-aptのものは古い為、NodeSource経由でLTSを導入します。
-
-```bash
-curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
-sudo apt install nodejs -y
-```
-
-###### Go
-
-aptのものは古い為、公式tarballを導入します。
-
-```bash
-GO_VERSION=$(curl -fsSL "https://go.dev/VERSION?m=text" | head -1 | sed 's/^go//')
-curl -LO "https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz"
-sudo rm -rf /usr/local/go
-sudo tar -C /usr/local -xzf "go${GO_VERSION}.linux-amd64.tar.gz"
-export PATH="$PATH:/usr/local/go/bin"
-```
-
-###### Rust
-
-```bash
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-source "$HOME/.cargo/env"
-```
-
-###### Deno
-
-```bash
-curl -fsSL https://deno.land/install.sh | sh
-```
-
-##### 3. 公開鍵認証 (GitHub) の設定
+##### 1. 公開鍵認証 (GitHub) の設定
 
 ```bash
 ssh-keygen -t ed25519 -C "<your@mail>"
@@ -233,13 +185,19 @@ cat ~/.ssh/id_ed25519.pub
     ssh -T git@github.com
 ```
 
-##### 4. クローン
+##### 2. クローン
 
 ```bash
 git clone https://github.com/Samemaru07/Neovim-setup.git ~/.config/nvim
 ```
 
-##### 5. Neovimを起動
+##### 3. セットアップスクリプトの実行
+
+```bash
+bash ~/.config/nvim/setup.sh
+```
+
+##### 4. Neovimを起動
 
 ```bash
 nvim
@@ -253,25 +211,9 @@ nvim
 <details>
 <summary>Arch Linux</summary>
 
-##### 1. 基本ツールのインストール
+##### 1. 以降
 
-```bash
-sudo pacman -Syu
-sudo pacman -S --needed git curl zsh base-devel ripgrep fd xclip wl-clipboard python python-pip nodejs npm go rustup shellcheck shfmt clang
-```
-
-##### 2. Neovimのインストール
-
-```bash
-sudo pacman -S neovim
-```
-
-##### 3. 以降
-
-WSLの手順 3.公開鍵認証 (GitHub) の設定 ~ と同様に。
-
-> **💡 Tip:** 起動するとlazy.nvimが自動でプラグインをインストールします。
-> Masonも自動でLSPサーバをセットアップします。
+WSLの手順 1. 公開鍵認証 (GitHub) ~ の設定と同様に。
 
 </details>
 
@@ -283,7 +225,7 @@ WSLの手順 3.公開鍵認証 (GitHub) の設定 ~ と同様に。
 | プラグイン名                                                        | 説明                     |
 | ------------------------------------------------------------------- | ------------------------ |
 | [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) | アイコン表示             |
-| [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua)         | ファイルエクスプローラ   |
+| [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)     | ファイルエクスプローラ   |
 | [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)       | バッファライン表示       |
 | [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)        | ステータスライン         |
 | [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)       | ターミナルトグル         |
@@ -438,6 +380,7 @@ WSLの手順 3.公開鍵認証 (GitHub) の設定 ~ と同様に。
 | latexmk       | LaTeX自動ビルドツール |
 | lualatex      | LaTeXエンジン         |
 | neovim-remote | vimtex用リモート操作  |
+| zathura       | PDFビューア           |
 
 </details>
 
@@ -503,17 +446,23 @@ WSLの手順 3.公開鍵認証 (GitHub) の設定 ~ と同様に。
 <details>
 <summary>LSP</summary>
 
-| キー         | モード | 動作             |
-| ------------ | ------ | ---------------- |
-| `K`          | n      | ホバー情報表示   |
-| `gd`         | n      | 定義へジャンプ   |
-| `gr`         | n      | 参照一覧表示     |
-| `gi`         | n      | 実装へジャンプ   |
-| `<leader>rn` | n      | シンボルリネーム |
-| `<leader>ca` | n, v   | コードアクション |
-| `[d`         | n      | 前の診断へ移動   |
-| `]d`         | n      | 次の診断へ移動   |
-| `<leader>dl` | n      | 診断詳細表示     |
+| キー         | モード | 動作                                                |
+| ------------ | ------ | --------------------------------------------------- |
+| `K`          | n      | ホバー情報表示                                      |
+| `gd`         | n      | 定義へジャンプ                                      |
+| `gr`         | n      | 参照一覧表示                                        |
+| `gi`         | n      | 実装へジャンプ                                      |
+| `<leader>rn` | n      | シンボルリネーム                                    |
+| `<leader>ca` | n, v   | コードアクション                                    |
+| `[d`         | n      | 前の診断へ移動                                      |
+| `]d`         | n      | 次の診断へ移動                                      |
+| `<leader>dl` | n      | 診断詳細表示                                        |
+| `<leader>m`  | n      | Diagnostics一覧の表示/非表示（Trouble）             |
+| `<leader>xx` | n      | 全体Diagnostics一覧の表示/非表示（Trouble）         |
+| `<leader>xd` | n      | 現在バッファDiagnostics一覧の表示/非表示（Trouble） |
+
+> [!NOTE]
+> `trouble.nvim` は遅延ロードのため、`<leader>m` は `<leader>xx` / `<leader>xd`（または `:Trouble`）でプラグインが読み込まれた後に有効になります。
 
 </details>
 
@@ -583,6 +532,26 @@ WSLの手順 3.公開鍵認証 (GitHub) の設定 ~ と同様に。
 </details>
 
 <details>
+<summary>LaTeX (vimtex)</summary>
+
+`<localleader>`はバックスラッシュキーです。
+
+| キー              | モード | 動作                                   |
+| ----------------- | ------ | -------------------------------------- |
+| `<localleader>ll` | n      | コンパイル開始/停止（continuous mode） |
+| `<localleader>lv` | n      | PDFビューワーを開く（順方向検索）      |
+| `<localleader>le` | n      | コンパイルエラー一覧を表示             |
+| `<localleader>lc` | n      | 中間ファイルを削除                     |
+| `<localleader>lt` | n      | 目次を表示                             |
+| `<localleader>lk` | n      | コンパイルを停止                       |
+
+> **📌 Note:** コンパイルが開始されていないとき、またはコンパイルエラー時は、`<leader>s`でコンパイルを(リ)スタートします。
+
+> **📌 Note:** zathuraでPDFを開いた状態で`Ctrl+Click`すると、クリックした箇所に対応する行へ逆サーチします。
+
+</details>
+
+<details>
 <summary>パンくずナビゲーション (dropbar)</summary>
 
 | キー        | モード | 動作                             |
@@ -598,6 +567,7 @@ WSLの手順 3.公開鍵認証 (GitHub) の設定 ~ と同様に。
 
 | キー         | モード | 動作                          |
 | ------------ | ------ | ----------------------------- |
+| `<C-z>`      | i      | emoji.nvimをTelescopeで検索   |
 | `<leader>g`  | n      | lazygitを起動(フローティング) |
 | `<leader>w`  | n      | 単語を囲む（nvim-surround）   |
 | `<leader>W`  | n      | 行を囲む（nvim-surround）     |
@@ -723,7 +693,7 @@ Neovimを起動するたびに、「ひぐらしのなく頃に」より、**園
                         return ""
                     end
                     local ft = vim.bo.filetype
-                    if ft == "NvimTree" then
+                    if ft == "neo-tree" then
                         return ""
                     end
                     if ft == "alpha" then

@@ -1,44 +1,61 @@
 return {
-    { "nvim-tree/nvim-web-devicons" },
+    { "nvim-tree/nvim-web-devicons", lazy = true },
     {
-        "nvim-tree/nvim-tree.lua",
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v3.x",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "MunifTanjim/nui.nvim",
+        },
+        cmd = "Neotree",
+        keys = {
+            { "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Toggle Neotree" },
+        },
         config = function()
-            require("ui.nvim-tree")
+            require("ui.neo-tree")
         end,
     },
     {
         "akinsho/bufferline.nvim",
+        event = "VeryLazy",
         config = function()
             require("ui.bufferline")
         end,
     },
     {
         "nvim-lualine/lualine.nvim",
+        event = "VeryLazy",
         config = function()
             require("ui.lualine")
         end,
     },
     {
         "akinsho/toggleterm.nvim",
+        keys = {
+            { "<leader>th", "<cmd>ToggleTerm<cr>", desc = "Terminal" },
+            { "<leader>t", "<cmd>ToggleTerm<cr>", desc = "Toggle Terminal" },
+            { "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", desc = "Toggle lazygit" },
+        },
         config = function()
             require("ui.toggleterm")
         end,
     },
     {
         "folke/trouble.nvim",
+        cmd = { "Trouble", "TroubleToggle" },
+        keys = {
+            { "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics (Trouble)" },
+            { "<leader>xd", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer Diagnostics (Trouble)" },
+        },
         config = function()
             require("ui.trouble")
         end,
     },
-
     {
         "catppuccin/nvim",
         name = "catppuccin",
-        lazy = false,
-        priority = 1000,
-        opts = {},
+        lazy = true,
     },
-
     {
         "rebelot/kanagawa.nvim",
         priority = 1000,
@@ -47,15 +64,14 @@ return {
             require("ui.colorscheme")
         end,
     },
-
     {
         "goolord/alpha-nvim",
+        event = "VimEnter",
         config = function()
             require("ui.dashboard")
             vim.api.nvim_set_hl(0, "AlphaHeader", { fg = "#AFEEEE" })
         end,
     },
-
     {
         "shellRaining/hlchunk.nvim",
         event = { "BufReadPre", "BufNewFile" },
@@ -72,22 +88,21 @@ return {
                     style = { "Indent1", "Indent2", "Indent3", "Indent4", "Indent5", "Indent6" },
                 },
                 highlight = { "Indent1", "Indent2", "Indent3", "Indent4", "Indent5", "Indent6" },
-                exclude_filetypes = { "alpha", "NvimTree", "toggleterm" },
+                exclude_filetypes = { "alpha", "neo-tree", "toggleterm" },
             })
             vim.cmd([[
-				highlight Indent1 guifg=#FF8FA1 gui=nocombine
-				highlight Indent2 guifg=#FFC27F gui=nocombine
-				highlight Indent3 guifg=#62C8C8 gui=nocombine
-				highlight Indent4 guifg=#7FD1A8 gui=nocombine
-				highlight Indent5 guifg=#A776B7 gui=nocombine
-				highlight Indent6 guifg=#FFB84D gui=nocombine
-			]])
+                highlight Indent1 guifg=#FF8FA1 gui=nocombine
+                highlight Indent2 guifg=#FFC27F gui=nocombine
+                highlight Indent3 guifg=#62C8C8 gui=nocombine
+                highlight Indent4 guifg=#7FD1A8 gui=nocombine
+                highlight Indent5 guifg=#A776B7 gui=nocombine
+                highlight Indent6 guifg=#FFB84D gui=nocombine
+            ]])
         end,
     },
-
     {
         "folke/noice.nvim",
-        lazy = false,
+        event = "VeryLazy",
         dependencies = {
             "MunifTanjim/nui.nvim",
             "rcarriga/nvim-notify",
@@ -147,6 +162,7 @@ return {
                     },
                 },
                 messages = {
+                    enabled = false,
                     view = "notify",
                     view_error = "notify",
                     view_warn = "notify",
@@ -156,7 +172,6 @@ return {
             })
         end,
     },
-
     {
         "folke/which-key.nvim",
         event = "VeryLazy",
@@ -168,9 +183,9 @@ return {
             })
         end,
     },
-
     {
         "gen740/SmoothCursor.nvim",
+        event = "VeryLazy",
         config = function()
             require("smoothcursor").setup({
                 autostart = true,
@@ -204,23 +219,23 @@ return {
             })
         end,
     },
-
     {
         "folke/todo-comments.nvim",
+        event = { "BufReadPost", "BufNewFile" },
         dependencies = { "nvim-lua/plenary.nvim" },
         opts = {},
     },
-
     {
         "karb94/neoscroll.nvim",
+        event = "VeryLazy",
         opts = {
             animation_time = 300,
             easing_function = "quadratic",
         },
     },
-
     {
         "Bekaboo/dropbar.nvim",
+        event = { "BufReadPost", "BufNewFile" },
         url = "git@github.com:Bekaboo/dropbar.nvim.git",
         dependencies = {
             {
@@ -236,7 +251,5 @@ return {
             vim.keymap.set("n", "];", dropbar_api.select_next_context, { desc = "Select next context" })
         end,
     },
-    {
-        "moll/vim-bbye",
-    },
+    { "moll/vim-bbye", event = "VeryLazy" },
 }

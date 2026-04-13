@@ -1,61 +1,35 @@
 return {
     {
         "lervag/vimtex",
-        lazy = false,
+        ft = { "tex", "latex", "bib" },
         init = function()
-            vim.g.vimtex_compiler_progname = "nvr"
-            vim.g.vimtex_view_method = "general"
-            vim.g.vimtex_view_general_viewer = "/home/samemaru/dotfiles/sioyek-wsl.sh"
-            vim.g.vimtex_view_general_options = "--forward-search-file @tex --forward-search-line @line @pdf"
+            vim.fn.delete("/tmp/nvimsocket")
+            vim.fn.serverstart("/tmp/nvimsocket")
+            vim.g.vimtex_compiler_progname = "/home/samemaru/.local/bin/nvr"
             vim.g.vimtex_compiler_method = "latexmk"
+            vim.g.vimtex_compiler_latexmk_engines = { _ = "-lualatex" }
             vim.g.vimtex_compiler_latexmk = {
                 continuous = 1,
+                out_dir = ".build",
                 options = {
-                    "-pdf",
-                    "-lualatex",
                     "-synctex=1",
                     "-interaction=nonstopmode",
                     "-file-line-error",
                     "-halt-on-error",
-                    "-e '$latexmk_use_gzip_synctex = 0'",
                     "-shell-escape",
                 },
             }
+            vim.g.vimtex_view_general_viewer = "zathura"
+            vim.g.vimtex_view_general_options =
+                '-x "/home/samemaru/.local/bin/nvr --servername /tmp/nvimsocket --remote-silent +%{line} %{input}" --synctex-forward @line:0:@tex @pdf'
         end,
     },
 
-    {
-        "nvim-flutter/flutter-tools.nvim",
-        lazy = false,
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "stevearc/dressing.nvim",
-        },
-        config = function()
-            require("flutter-tools").setup({
-                flutter_path = "/home/samemaru/development/flutter/bin/flutter",
-                widget_guides = { enabled = true },
-                decorations = { statusline = { device = true } },
-                dev_log = { enabled = true, open_cmd = "tabnew" },
-                outline = { open_cmd = "30vsplit" },
-            })
-
-            vim.api.nvim_create_autocmd("VimEnter", {
-                pattern = "*",
-                callback = function()
-                    local cwd = vim.fn.getcwd()
-                    if vim.fn.isdirectory(cwd .. "/lib") == 1 then
-                        require("flutter-tools").setup_project()
-                    end
-                end,
-            })
-        end,
-    },
-
-    { "vhda/verilog_systemverilog.vim" },
+    { "vhda/verilog_systemverilog.vim", ft = { "verilog", "systemverilog" } },
 
     {
         "tpope/vim-dadbod",
+        cmd = { "DB" },
         dependencies = { "kristijanhusak/vim-dadbod-ui" },
         config = function()
             vim.g.db_ui_save_location = "~/.config/nvim/db_ui"
@@ -65,6 +39,7 @@ return {
 
     {
         "kristijanhusak/vim-dadbod-completion",
+        ft = { "sql", "mysql", "psql" },
         dependencies = { "tpope/vim-dadbod" },
         config = function()
             vim.api.nvim_create_autocmd("FileType", {
@@ -87,9 +62,7 @@ return {
     {
         "iamcco/markdown-preview.nvim",
         ft = "markdown",
-        build = function()
-            vim.fn["mkdp#util#install"]()
-        end,
+        build = "cd app & npm install",
         config = function()
             vim.g.mkdp_auto_start = 0
             vim.g.mkdp_open_to_the_world = 0
@@ -143,5 +116,5 @@ return {
         end,
     },
 
-    { "sophacles/vim-processing" },
+    { "sophacles/vim-processing", ft = "processing" },
 }

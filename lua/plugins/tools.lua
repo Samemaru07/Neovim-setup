@@ -1,6 +1,16 @@
 return {
     {
         "nvim-telescope/telescope.nvim",
+        cmd = "Telescope",
+        keys = {
+            { "<leader>f", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Fuzzy find in buffer" },
+            { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find files" },
+            { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Find buffers" },
+            { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live grep" },
+            { "<leader>fw", "<cmd>Telescope grep_string<cr>", desc = "Grep string" },
+            { "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document symbols" },
+            { "<leader>fS", "<cmd>Telescope lsp_workspace_symbols<cr>", desc = "Workspace symbols" },
+        },
         dependencies = { "nvim-lua/plenary.nvim" },
         config = function()
             require("telescope").setup({
@@ -13,20 +23,15 @@ return {
                     },
                 },
             })
-            local builtin = require("telescope.builtin")
-            local opts = { noremap = true, silent = true }
-            vim.keymap.set("n", "<leader>f", builtin.current_buffer_fuzzy_find, opts)
-            vim.keymap.set("n", "<leader>ff", builtin.find_files, opts)
-            vim.keymap.set("n", "<leader>fb", builtin.buffers, opts)
-            vim.keymap.set("n", "<leader>fg", builtin.live_grep, opts)
-            vim.keymap.set("n", "<leader>fw", builtin.grep_string, opts)
-            vim.keymap.set("n", "<leader>fs", builtin.lsp_document_symbols, opts)
-            vim.keymap.set("n", "<leader>fS", builtin.lsp_workspace_symbols, opts)
         end,
     },
 
     {
         "nvim-pack/nvim-spectre",
+        cmd = { "Spectre" },
+        keys = {
+            { "<leader>S", '<cmd>lua require("spectre").toggle()<CR>', desc = "Toggle Spectre" },
+        },
         dependencies = { "nvim-lua/plenary.nvim" },
         config = function()
             require("spectre").setup({
@@ -37,6 +42,8 @@ return {
 
     {
         "stevearc/conform.nvim",
+        event = { "BufWritePre" },
+        cmd = { "ConformInfo" },
         config = function()
             require("conform").setup({
                 formatters_by_ft = {
@@ -61,6 +68,8 @@ return {
                     qml = { "qmlformat" },
                     processing = { "clang_format" },
                     markdown = { "prettier", "markdownlink" },
+                    css = { "prettier" },
+                    scss = { "prettier" },
                 },
                 formatters = {
                     ["verible-verilog-format"] = {
@@ -70,12 +79,13 @@ return {
                     latexindent = {
                         command = "latexindent",
                         timeout_ms = 10000,
+                        prepend_args = { "-logfile", "/dev/null" },
                     },
                     prettier = {
                         prepend_args = { "--trailing-comma", "none", "--tab-width", "4" },
                     },
                     stylua = {
-                        prepend_args = { "--config-path", vim.fn.stdpath("config") .. "/stylua.toml" },
+                        prepend_args = { "--config-path", vim.fn.stdpath("config") .. "/tools/stylua.toml" },
                     },
                 },
             })
@@ -84,6 +94,7 @@ return {
 
     {
         "mfussenegger/nvim-lint",
+        event = { "BufReadPost", "BufNewFile" },
         config = function()
             require("core.lint")
         end,
@@ -91,62 +102,9 @@ return {
 
     {
         "lewis6991/gitsigns.nvim",
+        event = { "BufReadPost", "BufNewFile" },
         config = function()
             require("gitsigns").setup()
-        end,
-    },
-
-    {
-        "mfussenegger/nvim-dap",
-        dependencies = {
-            "rcarriga/nvim-dap-ui",
-            "nvim-neotest/nvim-nio",
-            "theHamsta/nvim-dap-virtual-text",
-            "jay-babu/mason-nvim-dap.nvim",
-        },
-        config = function()
-            local dap = require("dap")
-            local dapui = require("dapui")
-
-            require("mason-nvim-dap").setup({
-                ensure_installed = { "python", "cppdbg", "delve" },
-                automatic_installation = true,
-                handlers = {},
-            })
-
-            dapui.setup()
-            require("nvim-dap-virtual-text").setup()
-
-            dap.listeners.before.attach.dapui_config = function()
-                dapui.open()
-            end
-            dap.listeners.before.launch.dapui_config = function()
-                dapui.open()
-            end
-            dap.listeners.before.event_terminated.dapui_config = function()
-                dapui.close()
-            end
-            dap.listeners.before.event_exited.dapui_config = function()
-                dapui.close()
-            end
-
-            vim.keymap.set("n", "<Leader>db", dap.toggle_breakpoint, { desc = "Toggle Breakpoint" })
-            vim.keymap.set("n", "<Leader>dc", dap.continue, { desc = "DAP Continue" })
-        end,
-    },
-
-    {
-        "nvim-neotest/neotest",
-        dependencies = {
-            "nvim-neotest/nvim-nio",
-            "nvim-lua/plenary.nvim",
-            "antoinemadec/FixCursorHold.nvim",
-            "nvim-treesitter/nvim-treesitter",
-        },
-        config = function()
-            require("neotest").setup({
-                adapters = {},
-            })
         end,
     },
 }

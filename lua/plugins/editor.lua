@@ -1,11 +1,13 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
+        event = { "BufReadPost", "BufNewFile" },
         build = ":TSUpdate",
         config = function()
-            require("nvim-treesitter").setup({
+            require("nvim-treesitter.configs").setup({
                 highlight = { enable = true },
                 indent = { enable = true },
+                auto_install = true,
                 ensure_installed = {
                     "html",
                     "javascript",
@@ -36,6 +38,7 @@ return {
 
     {
         "nvim-treesitter/nvim-treesitter-context",
+        event = { "BufReadPost", "BufNewFile" },
         dependencies = { "nvim-treesitter/nvim-treesitter" },
         config = function()
             require("treesitter-context").setup({
@@ -51,6 +54,7 @@ return {
 
     {
         "windwp/nvim-autopairs",
+        event = "InsertEnter",
         config = function()
             require("nvim-autopairs").setup({
                 check_ts = true,
@@ -61,13 +65,28 @@ return {
 
     {
         "windwp/nvim-ts-autotag",
+        event = { "BufReadPre", "BufNewFile" },
+        dependencies = { "nvim-treesitter/nvim-treesitter" },
         config = function()
-            require("nvim-ts-autotag").setup()
+            require("nvim-ts-autotag").setup({
+                aliases = {
+                    markdown = "html",
+                },
+                per_filetype = {
+                    markdown = {
+                        enable_close = true,
+                        enable_rename = true,
+                    },
+                },
+            })
         end,
     },
 
     {
         "numToStr/Comment.nvim",
+        keys = {
+            { "<leader>/", mode = { "n", "v" } },
+        },
         dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
         config = function()
             vim.g.skip_ts_context_commentstring_module = true
@@ -86,9 +105,6 @@ return {
         "kylechui/nvim-surround",
         version = "*",
         event = "VeryLazy",
-        init = function()
-            vim.g.nvim_surround_no_insert_mappings = true
-        end,
         config = function()
             require("nvim-surround").setup({
                 surrounds = {
@@ -101,6 +117,9 @@ return {
                     },
                 },
             })
+            pcall(vim.keymap.del, "i", "<C-g>s")
+            pcall(vim.keymap.del, "i", "<C-g>S")
+            vim.keymap.set("i", "<C-g>", "<Esc>", { noremap = true })
         end,
     },
 
@@ -128,9 +147,10 @@ return {
         },
     },
 
-    { "mattn/emmet-vim" },
+    { "mattn/emmet-vim", ft = { "html", "css", "javascript", "typescript", "javascriptreact", "typescriptreact" } },
     {
         "rainbowhxch/beacon.nvim",
+        event = "VeryLazy",
         config = function()
             require("beacon").setup({
                 enable = true,

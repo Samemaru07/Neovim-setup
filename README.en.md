@@ -19,14 +19,17 @@
 
 </div>
 
-> [!NOTE]
-> Managed as a submodule of [dotfiles](https://github.com/Samemaru07/dotfiles).
-
 ![dashboard](assets/nvim-dashboard.png)
 
 ![demo-lsp](assets/nvim-lsp.gif)
 
 ![lualine-and-notify](assets/nvim_lualine-notify.JPEG)
+
+> [!NOTE]
+> Managed as a submodule of [dotfiles](https://github.com/Samemaru07/dotfiles).
+
+> [!NOTE]
+> Screenshots may slightly differ from the current appearance.
 
 ## ⭐ Features
 
@@ -42,12 +45,36 @@
 - **Windows native (`nvim.exe`) is currently not recommended.** Please use WSL instead.
 - Neovim >= 0.10 is required. Some tools are version-sensitive - packages from `apt` may be outdated. Follow the [Installation section](#-installation) for details.
 
+## 📁 Directory Structure
+
+```
+nvim/
+    ├ init.lua              # Entry point
+    ├ lazy-lock.json        # Plugin version lock file
+    ├ setup.sh              # Setup script (symlinks & TeX environment)
+    ├ tools/
+    │   ├ .clang-format     # C/C++ formatter (clang-format) config
+    │   ├ .latexmkrc        # latexmk config
+    │   └ stylua.toml       # Lua formatter (stylua) config
+    ├ lua/
+    │   ├ core/             # Options, keymaps, and autocommands
+    │   ├ plugins/          # Plugin specs (lazy.nvim)
+    │   ├ lsp/              # LSP config
+    │   ├ cmp/              # Completion config
+    │   ├ ui/               # UI plugins config
+    │   ├ snippets/         # Snippets
+    │   └ data/             # Data files (e.g. notify messages)
+    └ assets/               # Images for README
+```
+
 ## 🚀 Installation
 
 ### Use with dotfiles (Recommended)
 
 Clone [dotfiles](https://github.com/Samemaru07/dotfiles) with `--recurse-submodules`.
 See the dotfiles [README](https://github.com/Samemaru07/dotfiles) for details.
+
+### Use with this repository only
 
 <details>
 <summary>macOS</summary>
@@ -60,34 +87,7 @@ If not already installed:
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-##### 2. Install required tools
-
-```bash
-brew install neovim git curl ripgrep fd node go rust shellcheck shfmt llvm
-```
-
-> **📍Note:** Installing `llvm` makes `clang-format` available.
-
-##### 3. Python (usually pre-installed on macOS)
-
-```bash
-python3 --version
-pip3 --version
-```
-
-If Python is not available:
-
-```bash
-brew install python3
-```
-
-##### 4. Optional: Install Deno
-
-```bash
-brew install deno
-```
-
-##### 5. Nerd Font (Recommended)
+##### 2. Nerd Font (Recommended)
 
 A Nerd Font is recommended for proper icon display.
 
@@ -100,7 +100,7 @@ brew install --cask font-jetbrains-mono-nerd-font
 
 After installation, change the font in your terminal's settings.
 
-##### 6. Set up SSH key authentication (GitHub)
+##### 3. Set up SSH key authentication (GitHub)
 
 ```bash
 ssh-keygen -t ed25519 -C "<your@mail>"
@@ -125,13 +125,21 @@ cat ~/.ssh/id_ed25519.pub
     ssh -T git@github.com
 ```
 
-##### 7. Clone
+##### 4. Clone
 
 ```bash
 git clone https://github.com/Samemaru07/Neovim-setup.git ~/.config/nvim
 ```
 
-##### 8. Launch Neovim
+##### 5. Run the setup script
+
+```bash
+bash ~/.config/nvim/setup.sh
+```
+
+> **⚠️ Warning:** On macOS, there is no official package for `zathura`. Please refer to the [official site](https://pwmt.org/projects/zathura/) to install it manually. This step is not required if you don't use LaTeX.
+
+##### 6. Launch Neovim
 
 ```bash
 nvim
@@ -152,61 +160,7 @@ nvim
 1. Download [win32yank](https://github.com/equalsraf/win32yank/releases).
 2. Extract and place it in `C:\tools\`.
 
-##### 1. Install basic tools
-
-```bash
-sudo apt update
-sudo apt install -y git curl build-essential zsh ripgrep fd-find pulseaudio-utils xclip python3 python3-pip shellcheck shfmt clang-format wslu
-sudo ln -sf "$(which fdfind)" /usr/local/bin/fd
-```
-
-##### 2. Install version-sensitive tools
-
-###### Neovim
-
-The `apt` version is outdated. Install from the official binary instead.
-
-```bash
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
-sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
-sudo ln -sf /opt/nvim-linux-x86_64/bin/nvim /usr/local/bin/nvim
-```
-
-###### Node.js
-
-The `apt` version is outdated. Install the LTS version via NodeSource instead.
-
-```bash
-curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
-sudo apt install nodejs -y
-```
-
-###### Go
-
-The `apt` version is outdated. Install from the official tarball instead.
-
-```bash
-GO_VERSION=$(curl -fsSL "https://go.dev/VERSION?m=text" | head -1 | sed 's/^go//')
-curl -LO "https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz"
-sudo rm -rf /usr/local/go
-sudo tar -C /usr/local -xzf "go${GO_VERSION}.linux-amd64.tar.gz"
-export PATH="$PATH:/usr/local/go/bin"
-```
-
-###### Rust
-
-```bash
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-source "$HOME/.cargo/env"
-```
-
-###### Deno
-
-```bash
-curl -fsSL https://deno.land/install.sh | sh
-```
-
-##### 3. Set up SSH key authentication (GitHub)
+##### 1. Set up SSH key authentication (GitHub)
 
 ```bash
 ssh-keygen -t ed25519 -C "<your@mail>"
@@ -231,13 +185,19 @@ cat ~/.ssh/id_ed25519.pub
     ssh -T git@github.com
 ```
 
-##### 4. Clone
+##### 2. Clone
 
 ```bash
 git clone https://github.com/Samemaru07/Neovim-setup.git ~/.config/nvim
 ```
 
-##### 5. Launch Neovim
+##### 3. Run the setup script
+
+```bash
+bash ~/.config/nvim/setup.sh
+```
+
+##### 4. Launch Neovim
 
 ```bash
 nvim
@@ -251,25 +211,9 @@ nvim
 <details>
 <summary>Arch Linux</summary>
 
-##### 1. Install basic tools
+##### 1. Onwards
 
-```bash
-sudo pacman -Syu
-sudo pacman -S --needed git curl zsh base-devel ripgrep fd xclip wl-clipboard python python-pip nodejs npm go rustup shellcheck shfmt clang
-```
-
-##### 2. Install Neovim
-
-```bash
-sudo pacman -S neovim
-```
-
-##### 3. Onwards
-
-Follow the same steps as WSL, starting from step 3: Set up SSH key authentication (GitHub).
-
-> **💡 Tip:** On first launch, lazy.nvim will automatically install all plugins.
-> Mason will also set up LSP servers automatically.
+Follow the same steps as WSL, starting from step 1: Set up SSH key authentication (GitHub).
 
 </details>
 
@@ -281,7 +225,7 @@ Follow the same steps as WSL, starting from step 3: Set up SSH key authenticatio
 | Plugin                                                              | Description                   |
 | ------------------------------------------------------------------- | ----------------------------- |
 | [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) | File icons                    |
-| [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua)         | File explorer                 |
+| [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)     | File explorer                 |
 | [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)       | Buffer tab line               |
 | [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)        | Status line                   |
 | [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)       | Terminal toggle               |
@@ -436,6 +380,7 @@ Follow the same steps as WSL, starting from step 3: Set up SSH key authenticatio
 | latexmk       | LaTeX auto-build tool     |
 | lualatex      | LaTeX engine              |
 | neovim-remote | Remote control for vimtex |
+| zathura       | PDF viewer                |
 
 </details>
 
@@ -501,17 +446,23 @@ Follow the same steps as WSL, starting from step 3: Set up SSH key authenticatio
 <details>
 <summary>LSP</summary>
 
-| Key          | Mode | Action                    |
-| ------------ | ---- | ------------------------- |
-| `K`          | n    | Show hover information    |
-| `gd`         | n    | Jump to definition        |
-| `gr`         | n    | Show references           |
-| `gi`         | n    | Jump to implementation    |
-| `<leader>rn` | n    | Rename symbol             |
-| `<leader>ca` | n, v | Code action               |
-| `[d`         | n    | Go to previous diagnostic |
-| `]d`         | n    | Go to next diagnostic     |
-| `<leader>dl` | n    | Show diagnostic details   |
+| Key          | Mode | Action                                           |
+| ------------ | ---- | ------------------------------------------------ |
+| `K`          | n    | Show hover information                           |
+| `gd`         | n    | Jump to definition                               |
+| `gr`         | n    | Show references                                  |
+| `gi`         | n    | Jump to implementation                           |
+| `<leader>rn` | n    | Rename symbol                                    |
+| `<leader>ca` | n, v | Code action                                      |
+| `[d`         | n    | Go to previous diagnostic                        |
+| `]d`         | n    | Go to next diagnostic                            |
+| `<leader>dl` | n    | Show diagnostic details                          |
+| `<leader>m`  | n    | Toggle diagnostics list (Trouble)                |
+| `<leader>xx` | n    | Toggle workspace diagnostics list (Trouble)      |
+| `<leader>xd` | n    | Toggle current-buffer diagnostics list (Trouble) |
+
+> [!NOTE]
+> Because `trouble.nvim` is lazy-loaded, `<leader>m` becomes available only after loading Trouble via `<leader>xx` / `<leader>xd` (or `:Trouble`).
 
 </details>
 
@@ -581,6 +532,26 @@ Follow the same steps as WSL, starting from step 3: Set up SSH key authenticatio
 </details>
 
 <details>
+<summary>LaTeX (vimtex)</summary>
+
+`<localleader>` is the backslash key.
+
+| Key               | Mode | Action                                     |
+| ----------------- | ---- | ------------------------------------------ |
+| `<localleader>ll` | n    | Start / stop compilation (continuous mode) |
+| `<localleader>lv` | n    | Open PDF viewer (forward search)           |
+| `<localleader>le` | n    | Show compile error list                    |
+| `<localleader>lc` | n    | Clean auxiliary files                      |
+| `<localleader>lt` | n    | Show table of contents                     |
+| `<localleader>lk` | n    | Stop compilation                           |
+
+> **📌 Note:** When compilation has not started or has failed, use `<leader>s` to (re)start it.
+
+> **📌 Note:** While a PDF is open in zathura, `Ctrl+Click` performs an inverse search — jumping to the corresponding line in Neovim.
+
+</details>
+
+<details>
 <summary>Breadcrumb Navigation (dropbar)</summary>
 
 | Key         | Mode | Action                           |
@@ -594,15 +565,16 @@ Follow the same steps as WSL, starting from step 3: Set up SSH key authenticatio
 <details>
 <summary>Misc</summary>
 
-| Key          | Mode | Action                        |
-| ------------ | ---- | ----------------------------- |
-| `<leader>g`  | n    | Open lazygit (floating)       |
-| `<leader>w`  | n    | Surround word (nvim-surround) |
-| `<leader>W`  | n    | Surround line (nvim-surround) |
-| `<leader>dq` | n    | Delete surrounding quotes     |
-| `<leader>cq` | n    | Change quotes to brackets     |
-| `<leader>z`  | n    | Highlight cursor position     |
-| `<leader>rr` | n    | Reload Neovim config          |
+| Key          | Mode | Action                                   |
+| ------------ | ---- | ---------------------------------------- |
+| `<C-z>`      | i    | Search emojis via Telescope (emoji.nvim) |
+| `<leader>g`  | n    | Open lazygit (floating)                  |
+| `<leader>w`  | n    | Surround word (nvim-surround)            |
+| `<leader>W`  | n    | Surround line (nvim-surround)            |
+| `<leader>dq` | n    | Delete surrounding quotes                |
+| `<leader>cq` | n    | Change quotes to brackets                |
+| `<leader>z`  | n    | Highlight cursor position                |
+| `<leader>rr` | n    | Reload Neovim config                     |
 
 </details>
 
@@ -714,7 +686,7 @@ A Gundam-inspired message is displayed in the status line based on the file's sa
                         return ""
                     end
                     local ft = vim.bo.filetype
-                    if ft == "NvimTree" then
+                    if ft == "neo-tree" then
                         return ""
                     end
                     if ft == "alpha" then

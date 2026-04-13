@@ -35,8 +35,17 @@ local function format_and_save()
         end
         vim.cmd("write")
 
-        if vim.bo.filetype == "processing" then
-            -- 既存のジョブをkill
+        local ft = vim.bo.filetype
+
+        if ft == "tex" or ft == "latex" or ft == "bib" then
+            local info = vim.b.vimtex
+            local is_running = info and type(info.compiler) == "table" and info.compiler.status == 2
+            if not is_running then
+                vim.cmd("VimtexCompile")
+            end
+        end
+
+        if ft == "processing" then
             if processing_job_id then
                 vim.fn.jobstop(processing_job_id)
             end
@@ -238,7 +247,7 @@ map("n", "<leader>fc", function()
     require("spectre").open()
 end, opts)
 
-map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", opts)
+map("n", "<leader>e", "<cmd>Neotree toggle<CR>", opts)
 
 for i = 1, 9 do
     map("n", "<leader>" .. i, function()

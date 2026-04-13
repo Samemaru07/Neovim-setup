@@ -1,6 +1,6 @@
--- NvimTree のステータスライン
-vim.api.nvim_create_autocmd("BufEnter", {
-    pattern = "NvimTree_*",
+-- neo-tree のステータスライン
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "neo-tree",
     callback = function()
         vim.opt_local.statusline = "Explorer"
     end,
@@ -78,7 +78,9 @@ vim.api.nvim_create_autocmd("BufWritePost", {
                     vim.api.nvim_command("colorscheme kanagawa")
                     require("ui.bufferline")
                     require("ui.lualine")
-                    require("nvim-tree.api").tree.reload()
+                    if package.loaded["neo-tree"] then
+                        require("neo-tree.sources.manager").refresh("filesystem")
+                    end
                 end)
             end)
             vim.notify("🚀 設定を自動リロードしました！", vim.log.levels.INFO, { title = "Config" })

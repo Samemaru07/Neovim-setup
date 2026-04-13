@@ -1,6 +1,7 @@
 return {
     {
         "hrsh7th/nvim-cmp",
+        event = { "InsertEnter", "CmdlineEnter" },
         dependencies = {
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-buffer",
@@ -21,6 +22,7 @@ return {
 
     {
         "vim-skk/skkeleton",
+        lazy = false,
         dependencies = {
             "vim-denops/denops.vim",
             "delphinus/skkeleton_indicator.nvim",

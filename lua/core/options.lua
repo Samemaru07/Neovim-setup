@@ -27,7 +27,7 @@ vim.o.timeoutlen = 500
 vim.o.scrolloff = 2
 vim.o.wrap = false
 vim.o.autoread = true
-vim.o.cmdheight = 0
+vim.o.cmdheight = 1
 
 vim.diagnostic.config({
     virtual_text = true,
