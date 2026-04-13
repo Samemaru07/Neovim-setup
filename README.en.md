@@ -87,34 +87,7 @@ If not already installed:
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-##### 2. Install required tools
-
-```bash
-brew install neovim git curl ripgrep fd node go rust shellcheck shfmt llvm
-```
-
-> **📍Note:** Installing `llvm` makes `clang-format` available.
-
-##### 3. Python (usually pre-installed on macOS)
-
-```bash
-python3 --version
-pip3 --version
-```
-
-If Python is not available:
-
-```bash
-brew install python3
-```
-
-##### 4. Optional: Install Deno
-
-```bash
-brew install deno
-```
-
-##### 5. Nerd Font (Recommended)
+##### 2. Nerd Font (Recommended)
 
 A Nerd Font is recommended for proper icon display.
 
@@ -127,7 +100,7 @@ brew install --cask font-jetbrains-mono-nerd-font
 
 After installation, change the font in your terminal's settings.
 
-##### 6. Set up SSH key authentication (GitHub)
+##### 3. Set up SSH key authentication (GitHub)
 
 ```bash
 ssh-keygen -t ed25519 -C "<your@mail>"
@@ -152,13 +125,13 @@ cat ~/.ssh/id_ed25519.pub
     ssh -T git@github.com
 ```
 
-##### 7. Clone
+##### 4. Clone
 
 ```bash
 git clone https://github.com/Samemaru07/Neovim-setup.git ~/.config/nvim
 ```
 
-##### 8. Run the setup script
+##### 5. Run the setup script
 
 ```bash
 bash ~/.config/nvim/setup.sh
@@ -166,7 +139,7 @@ bash ~/.config/nvim/setup.sh
 
 > **⚠️ Warning:** On macOS, there is no official package for `zathura`. Please refer to the [official site](https://pwmt.org/projects/zathura/) to install it manually. This step is not required if you don't use LaTeX.
 
-##### 9. Launch Neovim
+##### 6. Launch Neovim
 
 ```bash
 nvim
@@ -187,61 +160,7 @@ nvim
 1. Download [win32yank](https://github.com/equalsraf/win32yank/releases).
 2. Extract and place it in `C:\tools\`.
 
-##### 1. Install basic tools
-
-```bash
-sudo apt update
-sudo apt install -y git curl build-essential zsh ripgrep fd-find pulseaudio-utils xclip python3 python3-pip shellcheck shfmt clang-format wslu
-sudo ln -sf "$(which fdfind)" /usr/local/bin/fd
-```
-
-##### 2. Install version-sensitive tools
-
-###### Neovim
-
-The `apt` version is outdated. Install from the official binary instead.
-
-```bash
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
-sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
-sudo ln -sf /opt/nvim-linux-x86_64/bin/nvim /usr/local/bin/nvim
-```
-
-###### Node.js
-
-The `apt` version is outdated. Install the LTS version via NodeSource instead.
-
-```bash
-curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
-sudo apt install nodejs -y
-```
-
-###### Go
-
-The `apt` version is outdated. Install from the official tarball instead.
-
-```bash
-GO_VERSION=$(curl -fsSL "https://go.dev/VERSION?m=text" | head -1 | sed 's/^go//')
-curl -LO "https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz"
-sudo rm -rf /usr/local/go
-sudo tar -C /usr/local -xzf "go${GO_VERSION}.linux-amd64.tar.gz"
-export PATH="$PATH:/usr/local/go/bin"
-```
-
-###### Rust
-
-```bash
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-source "$HOME/.cargo/env"
-```
-
-###### Deno
-
-```bash
-curl -fsSL https://deno.land/install.sh | sh
-```
-
-##### 3. Set up SSH key authentication (GitHub)
+##### 1. Set up SSH key authentication (GitHub)
 
 ```bash
 ssh-keygen -t ed25519 -C "<your@mail>"
@@ -266,19 +185,19 @@ cat ~/.ssh/id_ed25519.pub
     ssh -T git@github.com
 ```
 
-##### 4. Clone
+##### 2. Clone
 
 ```bash
 git clone https://github.com/Samemaru07/Neovim-setup.git ~/.config/nvim
 ```
 
-##### 5. Run the setup script
+##### 3. Run the setup script
 
 ```bash
 bash ~/.config/nvim/setup.sh
 ```
 
-##### 6. Launch Neovim
+##### 4. Launch Neovim
 
 ```bash
 nvim
@@ -292,25 +211,9 @@ nvim
 <details>
 <summary>Arch Linux</summary>
 
-##### 1. Install basic tools
+##### 1. Onwards
 
-```bash
-sudo pacman -Syu
-sudo pacman -S --needed git curl zsh base-devel ripgrep fd xclip wl-clipboard python python-pip nodejs npm go rustup shellcheck shfmt clang
-```
-
-##### 2. Install Neovim
-
-```bash
-sudo pacman -S neovim
-```
-
-##### 3. Onwards
-
-Follow the same steps as WSL, starting from step 3: Set up SSH key authentication (GitHub).
-
-> **💡 Tip:** On first launch, lazy.nvim will automatically install all plugins.
-> Mason will also set up LSP servers automatically.
+Follow the same steps as WSL, starting from step 1: Set up SSH key authentication (GitHub).
 
 </details>
 
