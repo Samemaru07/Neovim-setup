@@ -534,14 +534,16 @@ Follow the same steps as WSL, starting from step 1: Set up SSH key authenticatio
 <details>
 <summary>LaTeX (vimtex)</summary>
 
-| Key          | Mode | Action                                     |
-| ------------ | ---- | ------------------------------------------ |
-| `<leader>ll` | n    | Start / stop compilation (continuous mode) |
-| `<leader>lv` | n    | Open PDF viewer (forward search)           |
-| `<leader>le` | n    | Show compile error list                    |
-| `<leader>lc` | n    | Clean auxiliary files                      |
-| `<leader>lt` | n    | Show table of contents                     |
-| `<leader>lk` | n    | Stop compilation                           |
+`<localleader>` is the backslash key.
+
+| Key               | Mode | Action                                     |
+| ----------------- | ---- | ------------------------------------------ |
+| `<localleader>ll` | n    | Start / stop compilation (continuous mode) |
+| `<localleader>lv` | n    | Open PDF viewer (forward search)           |
+| `<localleader>le` | n    | Show compile error list                    |
+| `<localleader>lc` | n    | Clean auxiliary files                      |
+| `<localleader>lt` | n    | Show table of contents                     |
+| `<localleader>lk` | n    | Stop compilation                           |
 
 > **📌 Note:** When compilation has not started or has failed, use `<leader>s` to (re)start it.
 

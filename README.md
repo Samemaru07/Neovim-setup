@@ -534,14 +534,16 @@ WSLの手順 1. 公開鍵認証 (GitHub) ~ の設定と同様に。
 <details>
 <summary>LaTeX (vimtex)</summary>
 
-| キー         | モード | 動作                                   |
-| ------------ | ------ | -------------------------------------- |
-| `<leader>ll` | n      | コンパイル開始/停止（continuous mode） |
-| `<leader>lv` | n      | PDFビューワーを開く（順方向検索）      |
-| `<leader>le` | n      | コンパイルエラー一覧を表示             |
-| `<leader>lc` | n      | 中間ファイルを削除                     |
-| `<leader>lt` | n      | 目次を表示                             |
-| `<leader>lk` | n      | コンパイルを停止                       |
+`<localleader>`はバックスラッシュキーです。
+
+| キー              | モード | 動作                                   |
+| ----------------- | ------ | -------------------------------------- |
+| `<localleader>ll` | n      | コンパイル開始/停止（continuous mode） |
+| `<localleader>lv` | n      | PDFビューワーを開く（順方向検索）      |
+| `<localleader>le` | n      | コンパイルエラー一覧を表示             |
+| `<localleader>lc` | n      | 中間ファイルを削除                     |
+| `<localleader>lt` | n      | 目次を表示                             |
+| `<localleader>lk` | n      | コンパイルを停止                       |
 
 > **📌 Note:** コンパイルが開始されていないとき、またはコンパイルエラー時は、`<leader>s`でコンパイルを(リ)スタートします。
 
