@@ -19,17 +19,17 @@
 
 </div>
 
-> [!NOTE]
-> Managed as a submodule of [dotfiles](https://github.com/Samemaru07/dotfiles).
-
-> [!NOTE]
-> Screenshots may slightly differ from the current appearance.
-
 ![dashboard](assets/nvim-dashboard.png)
 
 ![demo-lsp](assets/nvim-lsp.gif)
 
 ![lualine-and-notify](assets/nvim_lualine-notify.JPEG)
+
+> [!NOTE]
+> Managed as a submodule of [dotfiles](https://github.com/Samemaru07/dotfiles).
+
+> [!NOTE]
+> Screenshots may slightly differ from the current appearance.
 
 ## ⭐ Features
 

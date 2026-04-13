@@ -19,17 +19,17 @@
 
 </div>
 
-> [!NOTE]
-> [dotfiles](https://github.com/Samemaru07/dotfiles)のサブモジュールとして管理されています。
-
-> [!NOTE]
-> 掲載している画像は、実際の表示と若干異なる場合があります。
-
 ![dashboard](assets/nvim-dashboard.png)
 
 ![demo-lsp](assets/nvim-lsp.gif)
 
 ![lualine-and-notify](assets/nvim_lualine-notify.JPEG)
+
+> [!NOTE]
+> [dotfiles](https://github.com/Samemaru07/dotfiles)のサブモジュールとして管理されています。
+
+> [!NOTE]
+> 掲載している画像は、実際の表示と若干異なる場合があります。
 
 ## ⭐ 特徴
 
