@@ -28,6 +28,8 @@ return {
                     "jq",
                     "jsonnetfmt",
                     "markdownlint",
+                    "terraform-ls",
+                    "yaml-language-server",
                 },
             })
         end,
@@ -69,6 +71,8 @@ return {
                     "vhdl_ls",
                     "harper_ls",
                     "marksman",
+                    "terraformls",
+                    "yamlls",
                 },
                 handlers = {
                     function(server_name)
@@ -176,6 +180,29 @@ return {
 
                     ["verible"] = function()
                         require("lspconfig").verible.setup({
+                            capabilities = capabilities,
+                        })
+                    end,
+
+                    ["yamlls"] = function()
+                        require("lspconfig").yamlls.setup({
+                            capabilities = capabilities,
+                            settings = {
+                                yaml = {
+                                    schemas = {
+                                        ["https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/ansible.json#/$defs/playbook"] = "playbooks/*.yml",
+                                        ["https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/ansible.json#/$defs/tasks"] = "tasks/*.yml",
+                                    },
+                                    validate = true,
+                                    hover = true,
+                                    completion = true,
+                                },
+                            },
+                        })
+                    end,
+
+                    ["terraformls"] = function()
+                        require("lspconfig").terraformls.setup({
                             capabilities = capabilities,
                         })
                     end,

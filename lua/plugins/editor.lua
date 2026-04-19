@@ -1,10 +1,11 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
+        commit = "90cd6580a657bc4b72e36d59a3e02e5e90d4cdc8",
         event = { "BufReadPost", "BufNewFile" },
         build = ":TSUpdate",
         config = function()
-            require("nvim-treesitter.configs").setup({
+            require("nvim-treesitter.config").setup({
                 highlight = { enable = true },
                 indent = { enable = true },
                 auto_install = true,
