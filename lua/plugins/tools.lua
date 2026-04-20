@@ -71,6 +71,7 @@ return {
                     css = { "prettier" },
                     scss = { "prettier" },
                     terraform = { "terraform_fmt" },
+                    tf = { "terraform_fmt" },
                     yaml = { "prettier" },
                 },
                 formatters = {
@@ -89,7 +90,6 @@ return {
                     stylua = {
                         prepend_args = { "--config-path", vim.fn.stdpath("config") .. "/tools/stylua.toml" },
                     },
-                    terraform_fmt = { prepend_args = { "-indent=4" } },
                 },
             })
         end,
