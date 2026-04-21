@@ -39,6 +39,7 @@ return {
             "\\usepackage[normalem]{ulem}",
             "\\usepackage{url}",
             "\\usepackage{float}",
+            "\\usepackage{amssymb}",
             "",
             "% ============================================================",
             "% 表組み・図",
