@@ -461,8 +461,7 @@ WSLの手順 1. 公開鍵認証 (GitHub) ~ の設定と同様に。
 | `<leader>xx` | n      | 全体Diagnostics一覧の表示/非表示（Trouble）         |
 | `<leader>xd` | n      | 現在バッファDiagnostics一覧の表示/非表示（Trouble） |
 
-> [!NOTE]
-> `trouble.nvim` は遅延ロードのため、`<leader>m` は `<leader>xx` / `<leader>xd`（または `:Trouble`）でプラグインが読み込まれた後に有効になります。
+> **📌 Note**: `trouble.nvim` は遅延ロードのため、`<leader>m` は `<leader>xx` / `<leader>xd`（または `:Trouble`）でプラグインが読み込まれた後に有効になります。
 
 </details>
 

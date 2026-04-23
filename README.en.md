@@ -461,8 +461,7 @@ Follow the same steps as WSL, starting from step 1: Set up SSH key authenticatio
 | `<leader>xx` | n    | Toggle workspace diagnostics list (Trouble)      |
 | `<leader>xd` | n    | Toggle current-buffer diagnostics list (Trouble) |
 
-> [!NOTE]
-> Because `trouble.nvim` is lazy-loaded, `<leader>m` becomes available only after loading Trouble via `<leader>xx` / `<leader>xd` (or `:Trouble`).
+> **📌 Note**: Because `trouble.nvim` is lazy-loaded, `<leader>m` becomes available only after loading Trouble via `<leader>xx` / `<leader>xd` (or `:Trouble`).
 
 </details>
 
