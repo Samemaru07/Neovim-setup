@@ -70,6 +70,9 @@ return {
                     markdown = { "prettier", "markdownlink" },
                     css = { "prettier" },
                     scss = { "prettier" },
+                    terraform = { "terraform_fmt" },
+                    tf = { "terraform_fmt" },
+                    yaml = { "prettier" },
                 },
                 formatters = {
                     ["verible-verilog-format"] = {
