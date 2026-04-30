@@ -19,6 +19,14 @@ require("core.options")
 require("core.keymaps")
 require("plugins")
 
+vim.filetype.add({
+    extension = {
+        j2 = "jinja2",
+        jinja = "jinja2",
+        jinja2 = "jinja2",
+    },
+})
+
 -- swap / backup / undo ディレクトリの保証
 local data_dir = vim.fn.stdpath("data")
 local swap_dir = data_dir .. "/swap//"

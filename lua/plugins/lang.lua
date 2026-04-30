@@ -117,4 +117,9 @@ return {
     },
 
     { "sophacles/vim-processing", ft = "processing" },
+
+    {
+        "pearofducks/ansible-vim",
+        ft = { "yaml.ansible", "jinja2" },
+    },
 }
