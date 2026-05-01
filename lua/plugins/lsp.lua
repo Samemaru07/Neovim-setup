@@ -30,6 +30,7 @@ return {
                     "markdownlint",
                     "terraform-ls",
                     "yaml-language-server",
+                    "yamlfmt",
                 },
             })
         end,
@@ -187,17 +188,6 @@ return {
                     ["yamlls"] = function()
                         require("lspconfig").yamlls.setup({
                             capabilities = capabilities,
-                            settings = {
-                                yaml = {
-                                    schemas = {
-                                        ["https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/ansible.json#/$defs/playbook"] = "playbooks/*.yml",
-                                        ["https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/ansible.json#/$defs/tasks"] = "tasks/*.yml",
-                                    },
-                                    validate = true,
-                                    hover = true,
-                                    completion = true,
-                                },
-                            },
                         })
                     end,
 

@@ -72,7 +72,7 @@ return {
                     scss = { "prettier" },
                     terraform = { "terraform_fmt" },
                     tf = { "terraform_fmt" },
-                    yaml = { "prettier" },
+
                 },
                 formatters = {
                     ["verible-verilog-format"] = {
@@ -90,6 +90,7 @@ return {
                     stylua = {
                         prepend_args = { "--config-path", vim.fn.stdpath("config") .. "/tools/stylua.toml" },
                     },
+
                 },
             })
         end,
