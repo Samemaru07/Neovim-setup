@@ -72,7 +72,7 @@ return {
                     scss = { "prettier" },
                     terraform = { "terraform_fmt" },
                     tf = { "terraform_fmt" },
-
+                    yaml = { "prettier" },
                 },
                 formatters = {
                     ["verible-verilog-format"] = {
@@ -90,8 +90,18 @@ return {
                     stylua = {
                         prepend_args = { "--config-path", vim.fn.stdpath("config") .. "/tools/stylua.toml" },
                     },
-
                 },
+            })
+
+            -- YAMLファイルの文頭に --- を追加
+            vim.api.nvim_create_autocmd("BufWritePost", {
+                pattern = { "*.yaml", "*.yml" },
+                callback = function()
+                    local lines = vim.api.nvim_buf_get_lines(0, 0, 1, false)
+                    if lines[1] and not lines[1]:match("^%-%-%-") then
+                        vim.api.nvim_buf_set_lines(0, 0, 0, false, { "---" })
+                    end
+                end,
             })
         end,
     },
