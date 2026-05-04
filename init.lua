@@ -19,6 +19,30 @@ require("core.options")
 require("core.keymaps")
 require("plugins")
 
+vim.filetype.add({
+    extension = {
+        j2 = "jinja2",
+        jinja = "jinja2",
+        jinja2 = "jinja2",
+        tfvars = "terraform",
+    },
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "terraform-varsrs",
+    callback = function()
+        vim.bo.filetype = "terraform"
+    end,
+})
+
+-- Disable formatter for .tfvars files
+vim.api.nvim_create_autocmd("BufRead", {
+    pattern = "*.tfvars",
+    callback = function()
+        vim.b.disable_autoformat = true
+    end,
+})
+
 -- swap / backup / undo ディレクトリの保証
 local data_dir = vim.fn.stdpath("data")
 local swap_dir = data_dir .. "/swap//"

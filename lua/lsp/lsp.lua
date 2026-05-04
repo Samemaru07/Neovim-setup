@@ -6,6 +6,10 @@ vim.lsp.buf.hover = function()
 end
 
 M.on_attach = function(client, bufnr)
+    if client.name == "terraformls" then
+        client.server_capabilities.semanticTokensProvider = nil
+    end
+
     local map = vim.keymap.set
     local opts = { noremap = true, silent = true, buffer = bufnr }
 

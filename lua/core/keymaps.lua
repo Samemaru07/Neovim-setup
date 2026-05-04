@@ -33,7 +33,9 @@ local function format_and_save()
             vim.fn.setqflist({ { text = "Conform: " .. err, type = "E" } })
             vim.cmd("copen")
         end
-        vim.cmd("write")
+        if vim.fn.expand("%") ~= "" then
+            vim.cmd("write")
+        end
 
         local ft = vim.bo.filetype
 
