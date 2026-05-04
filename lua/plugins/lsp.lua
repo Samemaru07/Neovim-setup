@@ -194,6 +194,7 @@ return {
                     ["terraformls"] = function()
                         require("lspconfig").terraformls.setup({
                             capabilities = capabilities,
+                            filetypes = { "terraform" },
                         })
                     end,
                 },
