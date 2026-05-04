@@ -32,7 +32,6 @@ return {
     {
         "akinsho/toggleterm.nvim",
         keys = {
-            { "<leader>th", "<cmd>ToggleTerm<cr>", desc = "Terminal" },
             { "<leader>t", "<cmd>ToggleTerm<cr>", desc = "Toggle Terminal" },
             { "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", desc = "Toggle lazygit" },
         },
