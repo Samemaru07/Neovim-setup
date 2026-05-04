@@ -79,6 +79,7 @@ return {
             require("hlchunk").setup({
                 chunk = {
                     enable = true,
+                    delay = 0,
                     style = { guibg = "#2E2E2E" },
                     exclude_filetypes = { "tex", "latex", "markdown" },
                 },
