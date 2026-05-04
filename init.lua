@@ -30,7 +30,7 @@ vim.filetype.add({
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = "terraform-varsrs",
+    pattern = "terraform-vars",
     callback = function()
         vim.bo.filetype = "terraform"
     end,
