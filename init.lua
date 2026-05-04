@@ -17,6 +17,7 @@ vim.g.mapleader = " "
 
 require("core.options")
 require("core.keymaps")
+require("core.autocmds")
 require("plugins")
 
 vim.filetype.add({
@@ -29,7 +30,7 @@ vim.filetype.add({
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = "terraform-varsrs",
+    pattern = "terraform-vars",
     callback = function()
         vim.bo.filetype = "terraform"
     end,

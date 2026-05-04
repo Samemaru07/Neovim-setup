@@ -32,7 +32,6 @@ return {
     {
         "akinsho/toggleterm.nvim",
         keys = {
-            { "<leader>th", "<cmd>ToggleTerm<cr>", desc = "Terminal" },
             { "<leader>t", "<cmd>ToggleTerm<cr>", desc = "Toggle Terminal" },
             { "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", desc = "Toggle lazygit" },
         },
@@ -79,6 +78,7 @@ return {
             require("hlchunk").setup({
                 chunk = {
                     enable = true,
+                    delay = 0,
                     style = { guibg = "#2E2E2E" },
                     exclude_filetypes = { "tex", "latex", "markdown" },
                 },

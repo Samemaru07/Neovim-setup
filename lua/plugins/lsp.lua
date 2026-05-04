@@ -162,8 +162,8 @@ return {
                         })
                     end,
 
-                    ["tsserver"] = function()
-                        require("lspconfig").tsserver.setup({
+                    ["ts_ls"] = function()
+                        require("lspconfig").ts_ls.setup({
                             capabilities = capabilities,
                             filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
                             init_options = {
@@ -176,8 +176,6 @@ return {
                             },
                         })
                     end,
-
-                    ["svlangserver"] = function() end,
 
                     ["verible"] = function()
                         require("lspconfig").verible.setup({

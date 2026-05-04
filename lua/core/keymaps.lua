@@ -9,10 +9,6 @@ map("n", "<leader>j", "<C-w>j", opts)
 map("n", "<leader>k", "<C-w>k", opts)
 map("n", "<leader>l", "<C-w>l", opts)
 
-map("t", "<C-h>", "<C-\\><C-n><C-w>h<cmd>checktime<CR>", opts)
-map("t", "<C-j>", "<C-\\><C-n><C-w>j<cmd>checktime<CR>", opts)
-map("t", "<C-k>", "<C-\\><C-n><C-w>k<cmd>checktime<CR>", opts)
-map("t", "<C-l>", "<C-\\><C-n><C-w>l<cmd>checktime<CR>", opts)
 map("t", "<C-g>", "<C-\\><C-n>", { noremap = true, silent = true, nowait = true })
 map("i", "<C-g>", "<Esc>", { noremap = true, silent = true, nowait = true })
 map("v", "<C-g>", "<Esc>", { noremap = true, silent = true, nowait = true })
@@ -236,11 +232,9 @@ end, opts)
 
 vim.keymap.set("i", "<C-h>", "<C-w>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-h>", "db", { noremap = true, silent = true })
-vim.keymap.set("t", "<C-h>", "<C-E>", { noremap = true, silent = true })
 
 vim.keymap.set("i", "<C-l>", "<C-o>de", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-l>", "de", { noremap = true, silent = true })
-vim.keymap.set("t", "<C-l>", "<C-r>", { noremap = true, silent = true })
 
 map({ "n", "v" }, "<leader>bv", "<cmd>vsplit<CR>", opts)
 map({ "n", "v" }, "<leader>bh", "<cmd>split<CR>", opts)
