@@ -510,11 +510,8 @@ Follow the same steps as WSL, starting from step 1: Set up SSH key authenticatio
 
 | Key              | Mode | Action                       |
 | ---------------- | ---- | ---------------------------- |
-| `<C-h/j/k/l>`    | t    | Move to window from terminal |
-| `<C-g>`          | t    | Exit terminal mode           |
+| `<C-g>`          | t    | Switch to Terminal-Normal mode |
 | `<C-Right/Left>` | t    | Move by word (right/left)    |
-| `<C-h>`          | t    | Backspace                    |
-| `<C-l>`          | t    | Delete                       |
 
 </details>
 
