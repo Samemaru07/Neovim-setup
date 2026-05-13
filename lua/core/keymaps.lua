@@ -37,9 +37,10 @@ local function format_and_save()
 
         if ft == "tex" or ft == "latex" or ft == "bib" then
             local info = vim.b.vimtex
-            local is_running = info and type(info.compiler) == "table" and info.compiler.status == 2
-            if not is_running then
-                vim.cmd("VimtexCompile")
+            if info and type(info.compiler) == "table" then
+                if info.compiler.status ~= 2 then
+                    vim.cmd("VimtexCompile")
+                end
             end
         end
 
