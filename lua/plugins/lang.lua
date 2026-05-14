@@ -68,7 +68,6 @@ return {
             vim.g.mkdp_open_to_the_world = 0
             vim.g.mkdp_open_ip = "127.0.0.1"
 
-            -- OS判別
             local is_wsl = (function()
                 local output = vim.fn.systemlist("uname -r")
                 if not output[1] then
@@ -78,7 +77,6 @@ return {
             end)()
 
             if is_wsl then
-                -- WSL環境の設定
                 vim.g.mkdp_browser = ""
                 vim.g.mkdp_browserfunc = "OpenWslBrowser"
                 vim.cmd([[
@@ -87,11 +85,30 @@ return {
                 endfunction
             ]])
             else
-                -- Arch Linuxの設定
                 vim.g.mkdp_browser = ""
                 vim.g.mkdp_browserfunc = ""
             end
         end,
+    },
+
+    {
+        "arminveres/md-pdf.nvim",
+        branch = "main",
+        ft = "markdown",
+
+        keys = {
+            {
+                "<leader>p",
+                function()
+                    require("md-pdf").convert_md_to_pdf()
+                end,
+            },
+        },
+
+        opts = {
+            preview_cmd = "zathura",
+            toc = false,
+        },
     },
 
     {

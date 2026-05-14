@@ -1,0 +1,2 @@
+#!/bin/bash
+/usr/bin/pandoc --pdf-engine=lualatex -V documentclass=bxjsarticle -V classoption=pandoc "$@"

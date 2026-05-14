@@ -41,6 +41,8 @@ setup_symlinks() {
     echo "  ✅ ~/.clang-format"
     ln -sf "$SCRIPT_DIR/tools/.latexmkrc" "$HOME/.latexmkrc"
     echo "  ✅ ~/.latexmkrc"
+    ln -sf "$SCRIPT_DIR/tools/pandoc" "$HOME/.local/bin/pandoc"
+    echo " ✅️ ~/.local/bin/pandoc"
 }
 
 # ============================================================
@@ -92,7 +94,7 @@ install_apt() {
 
     echo "Installing language runtimes..."
     sudo apt-get install -y python3 python3-pip python3-venv perl
-    sudo apt-get install -y php php-xml composer
+    sudo apt-get install -y php php-xml composer pandoc
 
     echo "Installing formatter/linter tools..."
     sudo apt-get install -y shellcheck shfmt
@@ -123,7 +125,7 @@ install_pacman() {
         ripgrep fd \
         xclip wl-clipboard \
         python python-pip \
-        go rustup perl php composer \
+        go rustup perl php composer pandoc \
         shellcheck shfmt ghdl clang pgformatter chktex
 
     # LaTeX (任意)
@@ -145,7 +147,7 @@ install_brew() {
     echo "Installing core tools..."
     brew install git curl wget unzip zsh \
         ripgrep fd \
-        python3 perl php composer \
+        python3 perl php composer pandoc \
         shellcheck shfmt \
         llvm chktex \
         node go
