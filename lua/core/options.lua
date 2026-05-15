@@ -42,3 +42,5 @@ vim.diagnostic.config({
 })
 
 vim.g.nvim_surround_no_insert_mappings = true
+
+vim.env.PATH = vim.fn.expand("~/.local/bin:") .. vim.env.PATH
